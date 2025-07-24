@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Perez Atelier - Climatisation & Nettoyage</title>
+  <title>Perez Atelier - Climatisation & Nettoyage Auto</title>
   <style>
     :root {
       --bleu: #0077c8;
@@ -49,22 +49,22 @@
       align-items: center;
       user-select: none;
     }
-    header img {
+    header svg {
       height: 60px;
       width: auto;
-      object-fit: contain;
-      margin-bottom: 0.4rem;
       filter: drop-shadow(0 0 1px rgba(0,0,0,0.1));
+      margin-bottom: 0.4rem;
       transition: transform var(--transition);
+      cursor: pointer;
     }
-    header img:hover {
+    header svg:hover {
       transform: scale(1.05);
     }
     nav {
       display: flex;
       gap: 2rem;
       font-weight: 600;
-      font-size: 1rem;
+      font-size: 1.1rem;
       user-select: text;
     }
     nav a {
@@ -227,10 +227,17 @@
 <body>
 
   <header>
-    <img src="logo.png" alt="Logo Perez Atelier" />
+    <a href="#" aria-label="Accueil Perez Atelier" style="display:flex; justify-content:center; align-items:center; margin-bottom:0.4rem;">
+      <svg width="120" height="60" viewBox="0 0 120 60" role="img" aria-labelledby="titleLogo" xmlns="http://www.w3.org/2000/svg" style="cursor:pointer;">
+        <title id="titleLogo">Logo Perez Atelier P et A</title>
+        <rect width="120" height="60" fill="#0077c8" rx="12" ry="12"/>
+        <text x="30" y="40" font-family="Montserrat, Arial, sans-serif" font-weight="700" font-size="40" fill="#2bdcb6" letter-spacing="5">P</text>
+        <text x="65" y="40" font-family="Montserrat, Arial, sans-serif" font-weight="700" font-size="40" fill="#ffffff" letter-spacing="5">&amp;</text>
+        <text x="90" y="40" font-family="Montserrat, Arial, sans-serif" font-weight="700" font-size="40" fill="#2bdcb6" letter-spacing="5">A</text>
+      </svg>
+    </a>
     <nav>
-      <a href="#climatisation">Climatisation</a>
-      <a href="#nettoyage">Nettoyage</a>
+      <a href="#climatisation">Climatisation et Nettoyage Auto</a>
     </nav>
   </header>
 
@@ -331,15 +338,4 @@
           return;
         } else {
           entry.target.classList.add('visible');
-          appearOnScroll.unobserve(entry.target);
-        }
-      });
-    }, appearOptions);
-
-    faders.forEach(fader => {
-      appearOnScroll.observe(fader);
-    });
-  </script>
-
-</body>
-</html>
+          appearOnScroll.un
