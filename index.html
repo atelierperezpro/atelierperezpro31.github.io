@@ -1,102 +1,258 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Perez Atelier – Climatisation & Nettoyage Auto</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="favicon.png" type="image/png" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Perez Atelier – Climatisation & Nettoyage</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto&display=swap" rel="stylesheet" />
+
+<style>
+  body {
+    margin: 0; font-family: 'Montserrat', 'Roboto', sans-serif; background: #f0f4f8; color: #2c3e50;
+    line-height: 1.6;
+  }
+  header {
+    background: linear-gradient(90deg, #0077c8, #2bdcb6);
+    color: white;
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  header h1 {
+    font-weight: 700;
+    font-size: 1.8rem;
+    letter-spacing: 1.2px;
+  }
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+  }
+  nav a {
+    color: white;
+    font-weight: 600;
+    text-decoration: none;
+    position: relative;
+  }
+  nav a::after {
+    content: '';
+    display: block;
+    height: 3px;
+    width: 0;
+    background: #2bdcb6;
+    transition: width 0.3s ease;
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+  }
+  nav a:hover::after,
+  nav a:focus::after {
+    width: 100%;
+  }
+  /* Menu mobile */
+  #menu-toggle {
+    display: none;
+    font-size: 2.2rem;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+  }
+  @media (max-width: 768px) {
+    nav ul {
+      display: none;
+      flex-direction: column;
+      background: linear-gradient(180deg, #0077c8, #2bdcb6);
+      position: absolute;
+      top: 65px;
+      right: 0;
+      width: 100%;
+      padding: 1rem 0;
+    }
+    nav ul.show {
+      display: flex;
+    }
+    nav li {
+      margin: 0.7rem 0;
+      text-align: center;
+    }
+    #menu-toggle {
+      display: block;
+    }
+  }
+  /* Sections et animations */
+  section {
+    max-width: 900px;
+    background: white;
+    margin: 3rem auto;
+    padding: 2rem 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.7s ease-out;
+  }
+  section.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  h2 {
+    color: #0077c8;
+    font-weight: 700;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  h2 svg {
+    fill: #2bdcb6;
+    width: 28px;
+    height: 28px;
+  }
+  p, ul {
+    font-size: 1.1rem;
+    color: #34495e;
+  }
+  ul li {
+    margin-bottom: 0.7rem;
+    font-weight: 600;
+  }
+  button {
+    background-color: #2bdcb6;
+    color: white;
+    padding: 0.8rem 1.8rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 1.5rem;
+    transition: background-color 0.3s ease;
+  }
+  button:hover {
+    background-color: #25b69a;
+  }
+  footer {
+    text-align: center;
+    font-size: 0.9rem;
+    padding: 1.5rem 1rem;
+    color: #7f8c8d;
+  }
+  form {
+    display: flex; flex-direction: column;
+  }
+  input, textarea {
+    padding: 0.8rem; margin-bottom: 1rem; border: 1px solid #ccc; border-radius: 6px; font-size: 1rem;
+  }
+</style>
 </head>
 <body>
 
-  <header>
-    <div class="logo">P<span class="highlight">A</span></div>
-    <nav>
-      <ul>
-        <li><a href="#climatisation">Climatisation</a></li>
-        <li><a href="#nettoyage">Nettoyage</a></li>
-        <li><a href="#packs">Nos Packs</a></li>
-        <li><a href="#rdv">Prendre RDV</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <section class="hero">
-    <h1>Perez Atelier</h1>
-    <p>Climatisation automobile & Nettoyage haut de gamme</p>
-  </section>
-
-  <section id="climatisation" class="section">
-    <h2>Climatisation auto</h2>
-    <ul class="tarifs">
-      <li><strong>Recharge R134a</strong> : 80€</li>
-      <li><strong>Recharge R1234yf</strong> : 140€</li>
-      <li><strong>Recherche de fuite à l’azote hydrogéné</strong> : 60€</li>
+<header>
+  <h1>Perez Atelier</h1>
+  <button id="menu-toggle" aria-label="Ouvrir le menu">☰</button>
+  <nav>
+    <ul id="menu">
+      <li><a href="#climatisation">Climatisation</a></li>
+      <li><a href="#nettoyage">Nettoyage</a></li>
+      <li><a href="#packs">Packs</a></li>
+      <li><a href="#a-propos">À propos</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
-  </section>
+  </nav>
+</header>
 
-  <section id="nettoyage" class="section">
-    <h2>Nettoyage automobile</h2>
-    <p>Notre service haut de gamme démarre en <strong>janvier 2027</strong>.</p>
-  </section>
+<section id="climatisation" class="section">
+  <h2>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C8 2 5 5 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-4-3-7-7-7zm0 9a2 2 0 110-4 2 2 0 010 4z"/></svg>
+    Climatisation automobile
+  </h2>
+  <p>Recharge gaz R134a : <strong>80€</strong></p>
+  <p>Recharge gaz R1234yf : <strong>140€</strong></p>
+  <p>Recherche de fuite à l’azote hydrogéné : <strong>60€</strong></p>
+  <button class="btn">En savoir plus</button>
+</section>
 
-  <section id="packs" class="section">
-    <h2>Nos Packs 2027</h2>
-    <div class="packs">
-      <div class="pack">
-        <h3>✨ Pack Essentiel</h3>
-        <p>L’entretien soigné du quotidien.</p>
-        <ul>
-          <li>Prélavage mousse + lavage manuel sans micro-rayures</li>
-          <li>Décontamination légère</li>
-          <li>Aspiration & dépoussiérage intérieur</li>
-          <li>Finitions plastiques + vitres</li>
-        </ul>
-      </div>
+<section id="nettoyage" class="section">
+  <h2>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 3h18v4H3zM3 8h18v3H3zM3 13h18v6H3z"/></svg>
+    Nettoyage automobile
+  </h2>
+  <p>Disponible à partir de janvier 2027.</p>
+</section>
 
-      <div class="pack">
-        <h3>💎 Pack Sublime</h3>
-        <p>Pour sublimer l’éclat intérieur/extérieur.</p>
-        <ul>
-          <li>Pack Essentiel + cire de protection</li>
-          <li>Nettoyage des sièges tissus/cuirs</li>
-          <li>Finition tableau de bord nourrissante</li>
-        </ul>
-      </div>
+<section id="packs" class="section">
+  <h2>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 3h18v2H3zM3 8h18v2H3zM3 13h18v2H3z"/></svg>
+    Nos Packs
+  </h2>
+  <ul>
+    <li><strong>Pack Essentiel</strong> – Nettoyage intérieur et extérieur basique</li>
+    <li><strong>Pack Sublime</strong> – Nettoyage approfondi + traitement des surfaces</li>
+    <li><strong>Pack Intégral</strong> – Nettoyage complet + rénovation optiques, sellerie, etc.</li>
+  </ul>
+</section>
 
-      <div class="pack">
-        <h3>🔱 Pack Intégrale</h3>
-        <p>Notre formule prestige.</p>
-        <ul>
-          <li>Pack Sublime + nettoyage compartiment moteur</li>
-          <li>Décontamination approfondie</li>
-          <li>Protection carrosserie 3 mois</li>
-        </ul>
-      </div>
-    </div>
-  </section>
+<section id="a-propos" class="section">
+  <h2>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="12" cy="7" r="5"/><path d="M12 14c-7 0-9 4-9 5v1h18v-1c0-1-2-5-9-5z"/></svg>
+    À propos
+  </h2>
+  <p><strong>Perez Atelier</strong> est une entreprise familiale fondée dans la continuité du savoir-faire de mon grand-père, <strong>Bernard Perez</strong>, ancien directeur de la société OSclim, spécialisée depuis plus de 10 ans dans la climatisation automobile.</p>
+  <p>Nous perpétuons aujourd’hui cette expertise avec passion, exigence et service haut de gamme.</p>
+</section>
 
-  <section id="rdv" class="section">
-    <h2>Prendre rendez-vous</h2>
-    <p>Utilise notre calendrier en ligne :</p>
-    <iframe src="https://calendly.com/perezatelier31" width="100%" height="600" frameborder="0"></iframe>
-  </section>
+<section id="contact" class="section">
+  <h2>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 8V7l-3 2-2-2-3 2-2-2-3 2v1l3-2 2 2 3-2 2 2 3-2z"/></svg>
+    Contact
+  </h2>
+  <form id="contact-form">
+    <input type="text" name="nom" placeholder="Votre nom" required />
+    <input type="email" name="email" placeholder="Votre email" required />
+    <textarea name="message" rows="5" placeholder="Votre message..." required></textarea>
+    <button type="submit">Envoyer</button>
+  </form>
+  <p style="font-size: 0.9rem; margin-top: 0.5rem;">Formulaire non fonctionnel pour le moment.</p>
+</section>
 
-  <section id="contact" class="section">
-    <h2>Contact</h2>
-    <form action="contact.php" method="POST">
-      <input type="text" name="nom" placeholder="Votre nom" required />
-      <input type="email" name="email" placeholder="Votre email" required />
-      <textarea name="message" placeholder="Votre message" required></textarea>
-      <button type="submit">Envoyer</button>
-    </form>
-    <p>Email : <a href="mailto:perezatelier31@gmail.com">perezatelier31@gmail.com</a></p>
-  </section>
+<footer>
+  &copy; 2025 Perez Atelier – Tous droits réservés.
+</footer>
 
-  <footer>
-    <p>&copy; 2025 Perez Atelier. Tous droits réservés.</p>
-  </footer>
+<script>
+  // Menu toggle
+  const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('menu');
+  toggle.addEventListener('click', () => {
+    menu.classList.toggle('show');
+  });
+
+  // Animation apparition au scroll
+  function showSectionsOnScroll() {
+    document.querySelectorAll('section').forEach(section => {
+      const rect = section.getBoundingClientRect();
+      if(rect.top < window.innerHeight * 0.85) {
+        section.classList.add('visible');
+      }
+    });
+  }
+  window.addEventListener('scroll', showSectionsOnScroll);
+  window.addEventListener('load', showSectionsOnScroll);
+
+  // Empêche l'envoi réel du formulaire et affiche une alerte
+  const form = document.getElementById('contact-form');
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    alert("Le formulaire n'est pas encore fonctionnel. Vous pouvez envoyer un email directement à perezatelier31@gmail.com.");
+  });
+</script>
 
 </body>
 </html>
