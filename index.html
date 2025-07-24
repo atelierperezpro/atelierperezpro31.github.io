@@ -1,258 +1,191 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Perez Atelier – Climatisation & Nettoyage</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Perez Atelier - Climatisation & Nettoyage</title>
+  <style>
+    /* Couleurs principales */
+    :root {
+      --bleu: #0077c8;
+      --menthe: #2bdcb6;
+      --gris-fonce: #34495e;
+      --blanc: #ffffff;
+      --gris-clair: #f9f9f9;
+      --ombre: rgba(0, 0, 0, 0.15);
+    }
 
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto&display=swap" rel="stylesheet" />
+    body {
+      font-family: 'Montserrat', Arial, sans-serif;
+      background: var(--gris-clair);
+      color: var(--gris-fonce);
+      margin: 0;
+      padding: 1rem;
+      line-height: 1.5;
+    }
 
-<style>
-  body {
-    margin: 0; font-family: 'Montserrat', 'Roboto', sans-serif; background: #f0f4f8; color: #2c3e50;
-    line-height: 1.6;
-  }
-  header {
-    background: linear-gradient(90deg, #0077c8, #2bdcb6);
-    color: white;
-    padding: 1rem 2rem;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    display: flex; justify-content: space-between; align-items: center;
-  }
-  header h1 {
-    font-weight: 700;
-    font-size: 1.8rem;
-    letter-spacing: 1.2px;
-  }
-  nav ul {
-    list-style: none;
-    display: flex;
-    gap: 1.5rem;
-    margin: 0;
-    padding: 0;
-  }
-  nav a {
-    color: white;
-    font-weight: 600;
-    text-decoration: none;
-    position: relative;
-  }
-  nav a::after {
-    content: '';
-    display: block;
-    height: 3px;
-    width: 0;
-    background: #2bdcb6;
-    transition: width 0.3s ease;
-    position: absolute;
-    bottom: -6px;
-    left: 0;
-  }
-  nav a:hover::after,
-  nav a:focus::after {
-    width: 100%;
-  }
-  /* Menu mobile */
-  #menu-toggle {
-    display: none;
-    font-size: 2.2rem;
-    background: none;
-    border: none;
-    color: white;
-    cursor: pointer;
-  }
-  @media (max-width: 768px) {
-    nav ul {
+    h2 {
+      color: var(--bleu);
+      text-shadow: 1px 1px 2px var(--ombre);
+      margin-bottom: 0.5rem;
+    }
+
+    section {
+      background: var(--blanc);
+      border-radius: 10px;
+      padding: 1.5rem 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 6px 12px var(--ombre);
+      transition: box-shadow 0.3s ease;
+    }
+
+    section:hover {
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    p, li {
+      font-size: 1rem;
+      color: var(--gris-fonce);
+    }
+
+    button.btn {
+      background: var(--menthe);
+      border: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: 30px;
+      color: var(--blanc);
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(43, 220, 182, 0.4);
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+      margin-top: 1rem;
+      user-select: none;
+    }
+
+    button.btn:hover,
+    button.btn:focus {
+      background: #22bfa9;
+      box-shadow: 0 6px 12px rgba(34, 191, 169, 0.6);
+      outline: none;
+    }
+
+    .info-text {
+      background: rgba(43, 220, 182, 0.1);
+      color: var(--menthe);
+      padding: 1rem 1.5rem;
+      border-radius: 12px;
+      margin-top: 1rem;
+      box-shadow: inset 0 0 10px rgba(43, 220, 182, 0.3);
       display: none;
-      flex-direction: column;
-      background: linear-gradient(180deg, #0077c8, #2bdcb6);
-      position: absolute;
-      top: 65px;
-      right: 0;
-      width: 100%;
-      padding: 1rem 0;
+      font-size: 0.95rem;
+      line-height: 1.4;
+      user-select: text;
+      backdrop-filter: saturate(180%) blur(8px);
     }
-    nav ul.show {
-      display: flex;
+
+    ul {
+      margin: 0.5rem 0 0 1.25rem;
+      padding: 0;
     }
-    nav li {
-      margin: 0.7rem 0;
-      text-align: center;
+
+    ul li {
+      margin-bottom: 0.5rem;
     }
-    #menu-toggle {
-      display: block;
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      body {
+        padding: 0.8rem;
+      }
+      section {
+        padding: 1.2rem 1.5rem;
+      }
+      h2 {
+        font-size: 1.3rem;
+      }
+      button.btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+      }
+      .info-text {
+        font-size: 0.9rem;
+      }
     }
-  }
-  /* Sections et animations */
-  section {
-    max-width: 900px;
-    background: white;
-    margin: 3rem auto;
-    padding: 2rem 2.5rem;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.7s ease-out;
-  }
-  section.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  h2 {
-    color: #0077c8;
-    font-weight: 700;
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-  h2 svg {
-    fill: #2bdcb6;
-    width: 28px;
-    height: 28px;
-  }
-  p, ul {
-    font-size: 1.1rem;
-    color: #34495e;
-  }
-  ul li {
-    margin-bottom: 0.7rem;
-    font-weight: 600;
-  }
-  button {
-    background-color: #2bdcb6;
-    color: white;
-    padding: 0.8rem 1.8rem;
-    font-weight: 700;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    margin-top: 1.5rem;
-    transition: background-color 0.3s ease;
-  }
-  button:hover {
-    background-color: #25b69a;
-  }
-  footer {
-    text-align: center;
-    font-size: 0.9rem;
-    padding: 1.5rem 1rem;
-    color: #7f8c8d;
-  }
-  form {
-    display: flex; flex-direction: column;
-  }
-  input, textarea {
-    padding: 0.8rem; margin-bottom: 1rem; border: 1px solid #ccc; border-radius: 6px; font-size: 1rem;
-  }
-</style>
+  </style>
 </head>
 <body>
 
-<header>
-  <h1>Perez Atelier</h1>
-  <button id="menu-toggle" aria-label="Ouvrir le menu">☰</button>
-  <nav>
-    <ul id="menu">
-      <li><a href="#climatisation">Climatisation</a></li>
-      <li><a href="#nettoyage">Nettoyage</a></li>
-      <li><a href="#packs">Packs</a></li>
-      <li><a href="#a-propos">À propos</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-</header>
+  <main>
 
-<section id="climatisation" class="section">
-  <h2>
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C8 2 5 5 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-4-3-7-7-7zm0 9a2 2 0 110-4 2 2 0 010 4z"/></svg>
-    Climatisation automobile
-  </h2>
-  <p>Recharge gaz R134a : <strong>80€</strong></p>
-  <p>Recharge gaz R1234yf : <strong>140€</strong></p>
-  <p>Recherche de fuite à l’azote hydrogéné : <strong>60€</strong></p>
-  <button class="btn">En savoir plus</button>
-</section>
+    <!-- Section Climatisation -->
+    <section id="climatisation">
+      <h2>Climatisation automobile</h2>
+      <p>Recharge gaz R134a : <strong>80€</strong> (environ 30 minutes)</p>
+      <p>Recharge gaz R1234yf : <strong>140€</strong> (environ 45 minutes)</p>
+      <p>Recherche de fuite à l’azote hydrogéné : <strong>60€</strong> (environ 20 minutes)</p>
 
-<section id="nettoyage" class="section">
-  <h2>
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 3h18v4H3zM3 8h18v3H3zM3 13h18v6H3z"/></svg>
-    Nettoyage automobile
-  </h2>
-  <p>Disponible à partir de janvier 2027.</p>
-</section>
+      <button id="toggle-clim-info" class="btn" aria-expanded="false" aria-controls="clim-info">En savoir plus</button>
 
-<section id="packs" class="section">
-  <h2>
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 3h18v2H3zM3 8h18v2H3zM3 13h18v2H3z"/></svg>
-    Nos Packs
-  </h2>
-  <ul>
-    <li><strong>Pack Essentiel</strong> – Nettoyage intérieur et extérieur basique</li>
-    <li><strong>Pack Sublime</strong> – Nettoyage approfondi + traitement des surfaces</li>
-    <li><strong>Pack Intégral</strong> – Nettoyage complet + rénovation optiques, sellerie, etc.</li>
-  </ul>
-</section>
+      <div id="clim-info" class="info-text" role="region" aria-live="polite" aria-hidden="true">
+        <p>
+          Nos services de climatisation incluent la recharge complète du gaz, la détection précise de fuites à l’azote hydrogéné et le diagnostic de performance.  
+          Nous utilisons des équipements de pointe pour assurer une efficacité optimale et la sécurité de votre véhicule.
+        </p>
+        <p>
+          Notre équipe qualifiée réalise également l’entretien préventif et le contrôle du système de climatisation pour garantir votre confort toute l’année.  
+          Profitez d’un service professionnel, rapide et respectueux de l’environnement avec Perez Atelier.
+        </p>
+      </div>
+    </section>
 
-<section id="a-propos" class="section">
-  <h2>
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="12" cy="7" r="5"/><path d="M12 14c-7 0-9 4-9 5v1h18v-1c0-1-2-5-9-5z"/></svg>
-    À propos
-  </h2>
-  <p><strong>Perez Atelier</strong> est une entreprise familiale fondée dans la continuité du savoir-faire de mon grand-père, <strong>Bernard Perez</strong>, ancien directeur de la société OSclim, spécialisée depuis plus de 10 ans dans la climatisation automobile.</p>
-  <p>Nous perpétuons aujourd’hui cette expertise avec passion, exigence et service haut de gamme.</p>
-</section>
+    <!-- Section Nettoyage -->
+    <section id="nettoyage">
+      <h2>Nettoyage automobile</h2>
+      <p>Disponible à partir de janvier 2027.</p>
 
-<section id="contact" class="section">
-  <h2>
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 8V7l-3 2-2-2-3 2-2-2-3 2v1l3-2 2 2 3-2 2 2 3-2z"/></svg>
-    Contact
-  </h2>
-  <form id="contact-form">
-    <input type="text" name="nom" placeholder="Votre nom" required />
-    <input type="email" name="email" placeholder="Votre email" required />
-    <textarea name="message" rows="5" placeholder="Votre message..." required></textarea>
-    <button type="submit">Envoyer</button>
-  </form>
-  <p style="font-size: 0.9rem; margin-top: 0.5rem;">Formulaire non fonctionnel pour le moment.</p>
-</section>
+      <button id="toggle-nettoyage-info" class="btn" aria-expanded="false" aria-controls="nettoyage-info">En savoir plus</button>
 
-<footer>
-  &copy; 2025 Perez Atelier – Tous droits réservés.
-</footer>
+      <div id="nettoyage-info" class="info-text" role="region" aria-live="polite" aria-hidden="true">
+        <p>
+          Nous traitons différentes matières à l’intérieur et à l’extérieur du véhicule avec des produits spécifiques adaptés à chaque surface, garantissant un nettoyage en profondeur sans risque.
+        </p>
+        <p>Voici les principales étapes de notre nettoyage automobile avec la durée moyenne de chacune :</p>
+        <ul>
+          <li><strong>Prélavage et lavage extérieur :</strong> 30-40 minutes</li>
+          <li><strong>Nettoyage intérieur complet :</strong> 60-75 minutes</li>
+          <li><strong>Traitement et protection des surfaces :</strong> 30 minutes</li>
+          <li><strong>Finitions et vérifications :</strong> 15 minutes</li>
+        </ul>
+      </div>
+    </section>
 
-<script>
-  // Menu toggle
-  const toggle = document.getElementById('menu-toggle');
-  const menu = document.getElementById('menu');
-  toggle.addEventListener('click', () => {
-    menu.classList.toggle('show');
-  });
+  </main>
 
-  // Animation apparition au scroll
-  function showSectionsOnScroll() {
-    document.querySelectorAll('section').forEach(section => {
-      const rect = section.getBoundingClientRect();
-      if(rect.top < window.innerHeight * 0.85) {
-        section.classList.add('visible');
-      }
+  <script>
+    // Toggle climatisation info
+    const btnClim = document.getElementById('toggle-clim-info');
+    const infoClim = document.getElementById('clim-info');
+
+    btnClim.addEventListener('click', () => {
+      const isHidden = infoClim.style.display === 'none' || infoClim.style.display === '';
+      infoClim.style.display = isHidden ? 'block' : 'none';
+      btnClim.textContent = isHidden ? 'Réduire' : 'En savoir plus';
+      btnClim.setAttribute('aria-expanded', isHidden);
+      infoClim.setAttribute('aria-hidden', !isHidden);
     });
-  }
-  window.addEventListener('scroll', showSectionsOnScroll);
-  window.addEventListener('load', showSectionsOnScroll);
 
-  // Empêche l'envoi réel du formulaire et affiche une alerte
-  const form = document.getElementById('contact-form');
-  form.addEventListener('submit', e => {
-    e.preventDefault();
-    alert("Le formulaire n'est pas encore fonctionnel. Vous pouvez envoyer un email directement à perezatelier31@gmail.com.");
-  });
-</script>
+    // Toggle nettoyage info
+    const btnNettoyage = document.getElementById('toggle-nettoyage-info');
+    const infoNettoyage = document.getElementById('nettoyage-info');
+
+    btnNettoyage.addEventListener('click', () => {
+      const isHidden = infoNettoyage.style.display === 'none' || infoNettoyage.style.display === '';
+      infoNettoyage.style.display = isHidden ? 'block' : 'none';
+      btnNettoyage.textContent = isHidden ? 'Réduire' : 'En savoir plus';
+      btnNettoyage.setAttribute('aria-expanded', isHidden);
+      infoNettoyage.setAttribute('aria-hidden', !isHidden);
+    });
+  </script>
 
 </body>
 </html>
