@@ -3,206 +3,133 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Perez Atelier - Climatisation & Nettoyage Automobile</title>
+  <title>Perez Atelier</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet" />
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
-
-    :root {
-      --bleu: #0077c8;
-      --menthe: #2bdcb6;
-      --gris-fonce: #34495e;
-      --blanc: #ffffff;
-      --ombre: rgba(0, 0, 0, 0.15);
-      --transition: 0.3s ease;
-      --gris-clair: #f9f9f9;
-    }
-    * {
+    /* Reset & base */
+    *, *::before, *::after {
       box-sizing: border-box;
     }
     body {
       margin: 0;
-      font-family: 'Montserrat', Arial, sans-serif;
-      background: var(--gris-clair);
-      color: var(--gris-fonce);
-      line-height: 1.5;
-      scroll-behavior: smooth;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(to bottom, #f4f4f4, #e7f0f8);
+      color: #222;
+      overflow-x: hidden;
     }
     a {
-      color: var(--bleu);
       text-decoration: none;
-      transition: color var(--transition);
+      color: inherit;
     }
-    a:hover, a:focus {
-      color: var(--menthe);
-      outline: none;
+    ul {
+      padding-left: 1.25rem;
+      margin-top: 0;
     }
+
+    /* Header */
     header {
-      background: var(--blanc);
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
       position: sticky;
       top: 0;
-      z-index: 1000;
-      padding: 1.5rem 2rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      user-select: none;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: saturate(180%) blur(8px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 3rem 1rem 2rem;
       text-align: center;
+      z-index: 1000;
+      transition: background-color 0.3s ease;
     }
     header h1 {
-      font-weight: 700;
+      font-weight: 800;
       font-size: 2.8rem;
-      color: var(--bleu);
-      margin: 0 0 0.2rem 0;
-      text-shadow: 2px 2px 6px rgba(0,0,0,0.12);
-      user-select: text;
+      color: #006b9a;
+      margin: 0;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.1);
     }
     header p {
-      font-weight: 400;
-      font-size: 1.2rem;
-      color: var(--menthe);
-      margin: 0;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
-      user-select: text;
-    }
-    nav {
-      margin-top: 1rem;
+      margin-top: 0.5rem;
       font-weight: 600;
-      font-size: 1.1rem;
-      user-select: text;
+      font-size: 1.25rem;
+      color: #2b2b2b;
     }
-    nav a {
-      padding: 0.4rem 0.8rem;
-      border-radius: 24px;
-      border: 2px solid transparent;
-      transition: border-color var(--transition), background-color var(--transition), color var(--transition);
-      cursor: pointer;
-      user-select: text;
-    }
-    nav a:hover, nav a:focus {
-      border-color: var(--menthe);
-      background-color: rgba(43, 220, 182, 0.15);
-      color: var(--menthe);
-      outline: none;
-    }
-    main {
-      max-width: 900px;
-      margin: 2rem auto 3rem;
-      padding: 0 1rem;
-      flex-grow: 1;
-    }
+
+    /* Section base */
     section {
-      background: var(--blanc);
-      border-radius: 12px;
-      padding: 2rem;
-      margin-bottom: 2.5rem;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.08);
-      transition: box-shadow 0.3s ease, opacity 0.8s ease, transform 0.8s ease;
+      max-width: 900px;
+      margin: 3rem auto;
+      background: rgba(255 255 255 / 0.85);
+      border-radius: 14px;
+      padding: 3rem 2rem;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
       opacity: 0;
       transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
     }
     section.visible {
       opacity: 1;
       transform: translateY(0);
     }
-    section:hover {
-      box-shadow: 0 12px 24px rgba(0,0,0,0.14);
-    }
     h2 {
-      color: var(--bleu);
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-      margin-bottom: 1rem;
+      color: #004e74;
       font-weight: 700;
-      font-size: 1.8rem;
-      user-select: text;
-    }
-    p, li {
-      font-size: 1rem;
-      color: var(--gris-fonce);
-      user-select: text;
-    }
-    button.btn {
-      background: var(--menthe);
-      border: none;
-      padding: 0.7rem 1.5rem;
-      border-radius: 30px;
-      color: var(--blanc);
-      font-weight: 700;
-      cursor: pointer;
-      box-shadow: 0 6px 12px rgba(43, 220, 182, 0.5);
-      transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.15s ease;
-      margin-top: 1.5rem;
+      font-size: 2.1rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
       user-select: none;
     }
-    button.btn:hover,
-    button.btn:focus {
-      background: #22bfa9;
-      box-shadow: 0 8px 18px rgba(34, 191, 169, 0.7);
-      outline: none;
-      transform: scale(1.05);
-    }
-    .info-text {
-      background: rgba(43, 220, 182, 0.12);
-      color: var(--menthe);
-      padding: 1.2rem 1.8rem;
-      border-radius: 14px;
-      margin-top: 1rem;
-      box-shadow: inset 0 0 12px rgba(43, 220, 182, 0.35);
-      display: none;
-      font-size: 1rem;
-      line-height: 1.5;
-      user-select: text;
-      backdrop-filter: saturate(180%) blur(6px);
-      transition: opacity 0.3s ease;
-    }
-    ul {
-      margin: 0.75rem 0 0 1.5rem;
-      padding: 0;
+    p, ul {
+      font-weight: 400;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #333;
     }
     ul li {
-      margin-bottom: 0.65rem;
+      margin-bottom: 0.6rem;
     }
-    footer {
-      background: var(--bleu);
-      color: var(--blanc);
-      padding: 2rem 1rem;
-      text-align: center;
-      font-size: 0.9rem;
-      user-select: text;
-      box-shadow: 0 -2px 10px rgba(0,0,0,0.15);
+
+    /* Button styles */
+    .button {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 0.85rem 2rem;
+      background-color: #007bb5;
+      color: white;
+      font-weight: 700;
+      font-size: 1.1rem;
+      border-radius: 10px;
+      box-shadow: 0 6px 14px rgba(0,123,181,0.4);
+      cursor: pointer;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+      user-select: none;
+      border: none;
     }
-    footer .social {
-      margin: 1rem 0 0;
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-    }
-    footer .social a {
-      color: var(--blanc);
-      transition: color 0.3s ease;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 28px;
-      height: 28px;
-    }
-    footer .social a:hover,
-    footer .social a:focus {
-      color: var(--menthe);
+    .button:hover,
+    .button:focus {
+      background-color: #005f87;
+      box-shadow: 0 10px 20px rgba(0,95,135,0.6);
+      transform: translateY(-2px);
       outline: none;
     }
-    footer .social svg {
-      width: 24px;
-      height: 24px;
-      fill: currentColor;
+
+    /* En savoir plus hidden content */
+    .hidden-content {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.6s ease, opacity 0.6s ease;
+      margin-top: 1rem;
+      font-size: 1rem;
+      color: #444;
     }
+    .hidden-content.visible {
+      max-height: 1000px; /* suffisamment grand */
+      opacity: 1;
+    }
+
     /* Responsive */
-    @media (max-width: 650px) {
-      header {
-        padding: 1rem;
+    @media (max-width: 600px) {
+      section {
+        padding: 2rem 1.2rem;
+        margin: 2rem 1rem;
       }
       header h1 {
         font-size: 2rem;
@@ -210,151 +137,104 @@
       header p {
         font-size: 1rem;
       }
-      nav {
-        font-size: 1rem;
-      }
-      main {
-        margin: 1.5rem auto 2rem;
-        padding: 0 0.8rem;
-      }
-      section {
-        padding: 1.5rem 1.2rem;
-      }
-      h2 {
-        font-size: 1.5rem;
-      }
-      button.btn {
-        padding: 0.6rem 1.2rem;
-        font-size: 0.9rem;
-      }
-      .info-text {
-        font-size: 0.9rem;
-      }
-      footer {
-        font-size: 0.85rem;
-        padding: 1.5rem 1rem;
-      }
-      footer .social {
-        gap: 1rem;
+      .button {
+        width: 100%;
+        text-align: center;
       }
     }
   </style>
 </head>
 <body>
 
-  <header role="banner">
+  <header>
     <h1>Perez Atelier</h1>
-    <p>Climatisation et Nettoyage Automobile</p>
-    <nav role="navigation" aria-label="Menu principal">
-      <a href="#climatisation">Climatisation et Nettoyage Auto</a>
-    </nav>
+    <p>Climatisation et nettoyage automobile</p>
   </header>
 
-  <main>
-    <section id="climatisation" tabindex="0" aria-label="Section climatisation automobile" class="fade-section">
-      <h2>Climatisation automobile</h2>
-      <p>Recharge gaz R134a : <strong>80€</strong> (environ 45 minutes)</p>
-      <p>Recharge gaz R1234yf : <strong>140€</strong> (environ 45 minutes)</p>
-      <p>Recherche de fuite à l’azote hydrogéné : <strong>60€</strong> (environ 45 minutes)</p>
+  <section id="climatisation">
+    <h2>Climatisation auto</h2>
+    <p>Recharge de gaz R134a : <strong>80€</strong><br />
+    Recharge de gaz R1234yf : <strong>140€</strong><br />
+    Recherche de fuite à l’azote hydrogéné : <strong>60€</strong><br /><br />
+    <em>Temps d’intervention moyen pour toutes les prestations clim : 45 minutes</em></p>
 
-      <button id="toggle-clim-info" class="btn" aria-expanded="false" aria-controls="clim-info">En savoir plus</button>
+    <button class="button" aria-expanded="false" aria-controls="clim-more" id="btnClim">En savoir plus</button>
 
-      <div id="clim-info" class="info-text" role="region" aria-live="polite" aria-hidden="true">
-        <p>
-          Nos services de climatisation incluent la recharge complète du gaz, la détection précise de fuites à l’azote hydrogéné et le diagnostic de performance.  
-          Nous utilisons des équipements de pointe pour assurer une efficacité optimale et la sécurité de votre véhicule.
-        </p>
-        <p>
-          Notre équipe qualifiée réalise également l’entretien préventif et le contrôle du système de climatisation pour garantir votre confort toute l’année.  
-          Profitez d’un service professionnel, rapide et respectueux de l’environnement avec Perez Atelier.
-        </p>
-      </div>
-    </section>
-
-    <section id="nettoyage" tabindex="0" aria-label="Section nettoyage automobile" class="fade-section">
-      <h2>Nettoyage automobile</h2>
-      <p>Disponible à partir de janvier 2027.</p>
-
-      <button id="toggle-nettoyage-info" class="btn" aria-expanded="false" aria-controls="nettoyage-info">En savoir plus</button>
-
-      <div id="nettoyage-info" class="info-text" role="region" aria-live="polite" aria-hidden="true">
-        <p>
-          Nous traitons différentes matières à l’intérieur et à l’extérieur du véhicule avec des produits spécifiques adaptés à chaque surface, garantissant un nettoyage en profondeur sans risque.
-        </p>
-        <p>Voici nos formules de nettoyage automobile :</p>
-        <ul>
-          <li><strong>Pack Essentiel :</strong> lavage extérieur soigné et aspiration intérieure.</li>
-          <li><strong>Pack Sublime :</strong> nettoyage complet intérieur et extérieur, décontamination et traitement des surfaces.</li>
-          <li><strong>Pack Intégrale :</strong> rénovation complète, traitement des cuirs, tissus et protections longue durée.</li>
-        </ul>
-      </div>
-    </section>
-  </main>
-
-  <footer role="contentinfo">
-    <p>Perez Atelier &copy; 2025</p>
-    <p>9 avenue Jean Mermoz, Toulouse - contact@perezatelier.fr - 05 61 23 45 67</p>
-    <div class="social" aria-label="Liens vers réseaux sociaux">
-      <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22.675 0h-21.35C.6 0 0 .6 0 1.337v21.326C0 23.4.6 24 1.325 24H12.82v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.466.1 2.797.143v3.24l-1.918.001c-1.505 0-1.797.716-1.797 1.766v2.318h3.588l-.467 3.622h-3.121V24h6.116c.725 0 1.324-.6 1.324-1.337V1.337C24 .6 23.4 0 22.675 0z"/></svg>
-      </a>
-      <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.75 2h8.5A5.75 5.75 0 0122 7.75v8.5A5.75 5.75 0 0116.25 22h-8.5A5.75 5.75 0 012 16.25v-8.5A5.75 5.75 0 017.75 2zm0 2A3.75 3.75 0 004 7.75v8.5A3.75 3.75 0 007.75 20h8.5a3.75 3.75 0 003.75-3.75v-8.5A3.75 3.75 0 0016.25 4h-8.5zM12 7a5 5 0 110 10 5 5 0 010-10zm0 2a3 3 0 100 6 3 3 0 000-6zm5.5-3a1.5 1.5 0 110 3 1.5 1.5 0 010-3z"/></svg>
-      </a>
-      <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.329-.024-3.039-1.852-3.039-1.853 0-2.136 1.446-2.136 2.94v5.668H9.355V9h3.414v1.561h.049c.476-.9 1.637-1.852 3.369-1.852 3.605 0 4.27 2.372 4.27 5.455v6.288zM5.337 7.433a2.068 2.068 0 110-4.136 2.068 2.068 0 010 4.136zm1.777 13.019H3.56V9h3.554v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.226.792 24 1.771 24h20.451c.978 0 1.778-.774 1.778-1.729V1.729C24 .774 23.203 0 22.225 0z"/></svg>
-      </a>
+    <div class="hidden-content" id="clim-more" aria-hidden="true">
+      <p>Nous utilisons des stations de recharge modernes compatibles avec les gaz R134a et R1234yf. Chaque recharge comprend :</p>
+      <ul>
+        <li>Contrôle complet du circuit</li>
+        <li>Récupération et recyclage de l'ancien gaz</li>
+        <li>Recharge conforme avec ajout d'huile et traceur UV</li>
+        <li>Test d’étanchéité</li>
+      </ul>
+      <p>La recherche de fuite à l’azote hydrogéné permet de localiser précisément toute microfuite du circuit de climatisation.</p>
     </div>
+  </section>
+
+  <section id="nettoyage">
+    <h2>Nettoyage auto</h2>
+    <p>Début des prestations : <strong>janvier 2027</strong></p>
+    <p>Nos nettoyages sont réalisés à la main avec des produits professionnels adaptés à chaque surface : cuir, tissu, plastique, carrosserie, jantes, etc.</p>
+    <p>Nous proposons plusieurs niveaux de prestation pour l’intérieur et l’extérieur.</p>
+
+    <button class="button" aria-expanded="false" aria-controls="nettoyage-more" id="btnNettoyage">En savoir plus</button>
+
+    <div class="hidden-content" id="nettoyage-more" aria-hidden="true">
+      <p>Nos formules seront disponibles à partir de janvier 2027 :</p>
+      <ul>
+        <li><strong>Formule Essentielle</strong> : lavage extérieur + aspiration rapide</li>
+        <li><strong>Formule Sublime</strong> : nettoyage intérieur complet + lavage extérieur détaillé</li>
+        <li><strong>Formule Intégrale</strong> : nettoyage moteur, rénovation jantes, soins tissus/cuirs, traitement carrosserie</li>
+      </ul>
+      <p>Chaque intervention respecte les matériaux spécifiques de ton véhicule avec un produit professionnel dédié à chaque zone.</p>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 Perez Atelier - Tous droits réservés
   </footer>
 
-  <script>
-    // Toggle climatisation info
-    const btnClim = document.getElementById('toggle-clim-info');
-    const infoClim = document.getElementById('clim-info');
-
-    btnClim.addEventListener('click', () => {
-      const isHidden = infoClim.style.display === 'none' || infoClim.style.display === '';
-      infoClim.style.display = isHidden ? 'block' : 'none';
-      btnClim.textContent = isHidden ? 'Réduire' : 'En savoir plus';
-      btnClim.setAttribute('aria-expanded', isHidden);
-      infoClim.setAttribute('aria-hidden', !isHidden);
+<script>
+  // Animation fade-in on scroll
+  function onEntry(entry) {
+    entry.forEach(change => {
+      if (change.isIntersecting) {
+        change.target.classList.add('visible');
+      }
     });
+  }
 
-    // Toggle nettoyage info
-    const btnNettoyage = document.getElementById('toggle-nettoyage-info');
-    const infoNettoyage = document.getElementById('nettoyage-info');
+  let options = {
+    threshold: [0.1]
+  };
 
-    btnNettoyage.addEventListener('click', () => {
-      const isHidden = infoNettoyage.style.display === 'none' || infoNettoyage.style.display === '';
-      infoNettoyage.style.display = isHidden ? 'block' : 'none';
-      btnNettoyage.textContent = isHidden ? 'Réduire' : 'En savoir plus';
-      btnNettoyage.setAttribute('aria-expanded', isHidden);
-      infoNettoyage.setAttribute('aria-hidden', !isHidden);
+  let observer = new IntersectionObserver(onEntry, options);
+  document.querySelectorAll('section').forEach(section => {
+    observer.observe(section);
+  });
+
+  // Toggle hidden content accessibility and visibility
+  function toggleSection(btnId, contentId) {
+    const btn = document.getElementById(btnId);
+    const content = document.getElementById(contentId);
+
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', !expanded);
+      if (!expanded) {
+        content.classList.add('visible');
+        content.setAttribute('aria-hidden', 'false');
+      } else {
+        content.classList.remove('visible');
+        content.setAttribute('aria-hidden', 'true');
+      }
     });
+  }
 
-    // Fade-in animation on scroll
-    const faders = document.querySelectorAll('.fade-section');
-
-    const appearOptions = {
-      threshold: 0.15,
-      rootMargin: "0px 0px -50px 0px"
-    };
-
-    const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) {
-          return;
-        } else {
-          entry.target.classList.add('visible');
-          appearOnScroll.unobserve(entry.target);
-        }
-      });
-    }, appearOptions);
-
-    faders.forEach(fader => {
-      appearOnScroll.observe(fader);
-    });
-  </script>
+  toggleSection('btnClim', 'clim-more');
+  toggleSection('btnNettoyage', 'nettoyage-more');
+</script>
 
 </body>
 </html>
