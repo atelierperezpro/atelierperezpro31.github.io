@@ -1,239 +1,203 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Perez Atelier</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Perez Atelier - Climatisation & Nettoyage Auto</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
   <style>
-    /* Reset & base */
-    *, *::before, *::after {
-      box-sizing: border-box;
-    }
     body {
-      margin: 0;
       font-family: 'Montserrat', sans-serif;
-      background: linear-gradient(to bottom, #f4f4f4, #e7f0f8);
-      color: #222;
-      overflow-x: hidden;
-    }
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-    ul {
-      padding-left: 1.25rem;
-      margin-top: 0;
-    }
-
-    /* Header */
-    header {
-      position: sticky;
-      top: 0;
-      background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: saturate(180%) blur(8px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      padding: 3rem 1rem 2rem;
-      text-align: center;
-      z-index: 1000;
-      transition: background-color 0.3s ease;
-    }
-    header h1 {
-      font-weight: 800;
-      font-size: 2.8rem;
-      color: #006b9a;
       margin: 0;
-      text-shadow: 1px 1px 4px rgba(0,0,0,0.1);
-    }
-    header p {
-      margin-top: 0.5rem;
-      font-weight: 600;
-      font-size: 1.25rem;
-      color: #2b2b2b;
+      background-color: #f5f7f9;
+      color: #222;
     }
 
-    /* Section base */
-    section {
-      max-width: 900px;
-      margin: 3rem auto;
-      background: rgba(255 255 255 / 0.85);
-      border-radius: 14px;
-      padding: 3rem 2rem;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
+    header {
+      background: white;
+      padding: 10px 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
-    section.visible {
-      opacity: 1;
-      transform: translateY(0);
+
+    header img {
+      height: 50px;
     }
+
+    header h1 {
+      font-size: 22px;
+      margin: 0;
+      color: #2a466e;
+    }
+
     h2 {
-      color: #004e74;
-      font-weight: 700;
-      font-size: 2.1rem;
-      margin-bottom: 1.5rem;
+      color: #2a466e;
+      font-size: 22px;
+      margin-top: 40px;
       text-align: center;
-      user-select: none;
-    }
-    p, ul {
-      font-weight: 400;
-      font-size: 1.1rem;
-      line-height: 1.6;
-      color: #333;
-    }
-    ul li {
-      margin-bottom: 0.6rem;
     }
 
-    /* Button styles */
-    .button {
-      display: inline-block;
-      margin-top: 1.5rem;
-      padding: 0.85rem 2rem;
-      background-color: #007bb5;
-      color: white;
-      font-weight: 700;
-      font-size: 1.1rem;
+    .section {
+      max-width: 900px;
+      margin: 20px auto;
+      background: #fff;
       border-radius: 10px;
-      box-shadow: 0 6px 14px rgba(0,123,181,0.4);
-      cursor: pointer;
-      transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
-      user-select: none;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    .toggle {
+      margin: 15px 0;
+      background: #e8f0ff;
       border: none;
-    }
-    .button:hover,
-    .button:focus {
-      background-color: #005f87;
-      box-shadow: 0 10px 20px rgba(0,95,135,0.6);
-      transform: translateY(-2px);
-      outline: none;
+      color: #1a3d68;
+      font-weight: bold;
+      padding: 12px 16px;
+      width: 100%;
+      text-align: left;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
     }
 
-    /* En savoir plus hidden content */
-    .hidden-content {
-      max-height: 0;
-      overflow: hidden;
-      opacity: 0;
-      transition: max-height 0.6s ease, opacity 0.6s ease;
-      margin-top: 1rem;
-      font-size: 1rem;
+    .toggle:hover {
+      background: #d2e5ff;
+    }
+
+    .content {
+      display: none;
+      padding: 10px 15px;
+      animation: fadeSlide 0.4s ease-in-out;
+    }
+
+    @keyframes fadeSlide {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .pack {
+      margin-top: 20px;
+      border-top: 1px solid #ddd;
+      padding-top: 15px;
+    }
+
+    .pack img {
+      height: 40px;
+      vertical-align: middle;
+      margin-right: 10px;
+    }
+
+    .desc {
+      font-style: italic;
       color: #444;
-    }
-    .hidden-content.visible {
-      max-height: 1000px; /* suffisamment grand */
-      opacity: 1;
+      margin-bottom: 10px;
     }
 
-    /* Responsive */
-    @media (max-width: 600px) {
-      section {
-        padding: 2rem 1.2rem;
-        margin: 2rem 1rem;
-      }
-      header h1 {
-        font-size: 2rem;
-      }
-      header p {
-        font-size: 1rem;
-      }
-      .button {
-        width: 100%;
-        text-align: center;
-      }
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #777;
+      font-size: 14px;
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>Perez Atelier</h1>
-    <p>Climatisation et nettoyage automobile</p>
-  </header>
+<header>
+  <img src="logo-perezatelier.png" alt="Perez Atelier Logo">
+  <h1>PEREZ ATELIER</h1>
+</header>
 
-  <section id="climatisation">
-    <h2>Climatisation auto</h2>
-    <p>Recharge de gaz R134a : <strong>80€</strong><br />
-    Recharge de gaz R1234yf : <strong>140€</strong><br />
-    Recherche de fuite à l’azote hydrogéné : <strong>60€</strong><br /><br />
-    <em>Temps d’intervention moyen pour toutes les prestations clim : 45 minutes</em></p>
+<section class="section">
+  <h2>Climatisation</h2>
 
-    <button class="button" aria-expanded="false" aria-controls="clim-more" id="btnClim">En savoir plus</button>
+  <button class="toggle">Ancien gaz (R134a) — véhicules entre 1994 et 2016</button>
+  <div class="content">
+    <p><strong>Nom du gaz :</strong> R134a</p>
+    <p><strong>Prix :</strong> 80€</p>
+    <p><strong>Durée :</strong> Environ 30 minutes</p>
+    <p><strong>Détails :</strong> Recharge du circuit, contrôle de pression, vérification de performance.</p>
+  </div>
 
-    <div class="hidden-content" id="clim-more" aria-hidden="true">
-      <p>Nous utilisons des stations de recharge modernes compatibles avec les gaz R134a et R1234yf. Chaque recharge comprend :</p>
-      <ul>
-        <li>Contrôle complet du circuit</li>
-        <li>Récupération et recyclage de l'ancien gaz</li>
-        <li>Recharge conforme avec ajout d'huile et traceur UV</li>
-        <li>Test d’étanchéité</li>
-      </ul>
-      <p>La recherche de fuite à l’azote hydrogéné permet de localiser précisément toute microfuite du circuit de climatisation.</p>
-    </div>
-  </section>
+  <button class="toggle">Nouveau gaz (R1234yf) — véhicules à partir de 2017</button>
+  <div class="content">
+    <p><strong>Nom du gaz :</strong> R1234yf</p>
+    <p><strong>Prix :</strong> 140€</p>
+    <p><strong>Durée :</strong> Environ 45 minutes</p>
+    <p><strong>Détails :</strong> Recharge du nouveau fluide éco-responsable, contrôle du circuit, performance & sécurité.</p>
+  </div>
 
-  <section id="nettoyage">
-    <h2>Nettoyage auto</h2>
-    <p>Début des prestations : <strong>janvier 2027</strong></p>
-    <p>Nos nettoyages sont réalisés à la main avec des produits professionnels adaptés à chaque surface : cuir, tissu, plastique, carrosserie, jantes, etc.</p>
-    <p>Nous proposons plusieurs niveaux de prestation pour l’intérieur et l’extérieur.</p>
+  <button class="toggle">Recherche de fuite à l’azote hydrogéné</button>
+  <div class="content">
+    <p><strong>Prix :</strong> 60€</p>
+    <p><strong>Étapes :</strong> Purge du circuit, injection d’azote hydrogéné, détection par capteur, contrôle visuel.</p>
+    <p><strong>Justification :</strong> Cette méthode est précise, sans démontage, efficace pour localiser micro-fuites et prévenir toute rechute.</p>
+  </div>
+</section>
 
-    <button class="button" aria-expanded="false" aria-controls="nettoyage-more" id="btnNettoyage">En savoir plus</button>
+<section class="section">
+  <h2>Nettoyage Auto</h2>
 
-    <div class="hidden-content" id="nettoyage-more" aria-hidden="true">
-      <p>Nos formules seront disponibles à partir de janvier 2027 :</p>
-      <ul>
-        <li><strong>Formule Essentielle</strong> : lavage extérieur + aspiration rapide</li>
-        <li><strong>Formule Sublime</strong> : nettoyage intérieur complet + lavage extérieur détaillé</li>
-        <li><strong>Formule Intégrale</strong> : nettoyage moteur, rénovation jantes, soins tissus/cuirs, traitement carrosserie</li>
-      </ul>
-      <p>Chaque intervention respecte les matériaux spécifiques de ton véhicule avec un produit professionnel dédié à chaque zone.</p>
-    </div>
-  </section>
+  <div class="pack">
+    <h3>✨ Pack Essentiel</h3>
+    <p class="desc">L’entretien soigné du quotidien.</p>
+    <p><strong>Durée :</strong> 1h15</p>
+    <p><strong>Prix :</strong> de 60€ à 90€ selon le gabarit</p>
+    <ul>
+      <li>Prélavage mousse active</li>
+      <li>Lavage manuel sans micro-rayures</li>
+      <li>Jantes & pneus nettoyés</li>
+      <li>Intérieur : aspirateur, plastiques dépoussiérés</li>
+    </ul>
+  </div>
 
-  <footer>
-    &copy; 2025 Perez Atelier - Tous droits réservés
-  </footer>
+  <div class="pack">
+    <h3>💎 Pack Sublime</h3>
+    <p class="desc">Finition parfaite & habitacle désinfecté.</p>
+    <p><strong>Durée :</strong> 2h</p>
+    <p><strong>Prix :</strong> de 90€ à 130€ selon le gabarit</p>
+    <ul>
+      <li>Toutes prestations du pack Essentiel</li>
+      <li>Shampoing moquettes</li>
+      <li>Nettoyage vapeur des plastiques</li>
+      <li>Désinfection clim & habitacle</li>
+    </ul>
+  </div>
+
+  <div class="pack">
+    <h3>🚘 Pack Intégrale</h3>
+    <p class="desc">Rénovation complète intérieure & extérieure.</p>
+    <p><strong>Durée :</strong> 3h à 4h</p>
+    <p><strong>Prix :</strong> de 140€ à 190€ selon le gabarit</p>
+    <ul>
+      <li>Prestations du pack Sublime</li>
+      <li>Rénovation plastiques extérieurs</li>
+      <li>Shampoing sièges</li>
+      <li>Dressing pneus & finitions haut de gamme</li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  &copy; 2025 Perez Atelier — Climatisation & Nettoyage Auto
+</footer>
 
 <script>
-  // Animation fade-in on scroll
-  function onEntry(entry) {
-    entry.forEach(change => {
-      if (change.isIntersecting) {
-        change.target.classList.add('visible');
-      }
+  const toggles = document.querySelectorAll('.toggle');
+  toggles.forEach(button => {
+    button.addEventListener('click', () => {
+      const content = button.nextElementSibling;
+      content.style.display = content.style.display === 'block' ? 'none' : 'block';
     });
-  }
-
-  let options = {
-    threshold: [0.1]
-  };
-
-  let observer = new IntersectionObserver(onEntry, options);
-  document.querySelectorAll('section').forEach(section => {
-    observer.observe(section);
   });
-
-  // Toggle hidden content accessibility and visibility
-  function toggleSection(btnId, contentId) {
-    const btn = document.getElementById(btnId);
-    const content = document.getElementById(contentId);
-
-    btn.addEventListener('click', () => {
-      const expanded = btn.getAttribute('aria-expanded') === 'true';
-      btn.setAttribute('aria-expanded', !expanded);
-      if (!expanded) {
-        content.classList.add('visible');
-        content.setAttribute('aria-hidden', 'false');
-      } else {
-        content.classList.remove('visible');
-        content.setAttribute('aria-hidden', 'true');
-      }
-    });
-  }
-
-  toggleSection('btnClim', 'clim-more');
-  toggleSection('btnNettoyage', 'nettoyage-more');
 </script>
 
 </body>
