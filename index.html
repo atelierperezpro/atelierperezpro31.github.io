@@ -1,196 +1,213 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Perez Atelier - Clim & Nettoyage</title>
-<style>
-  body {
-    font-family: 'Montserrat', sans-serif;
-    background: #f9f9f9;
-    margin: 0; padding: 0;
-    color: #222;
-  }
-  header {
-    display: flex;
-    align-items: center;
-    padding: 20px;
-    background: #fff;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  }
-  header img {
-    height: 60px;
-    margin-right: 15px;
-  }
-  h1 {
-    font-weight: 700;
-    font-size: 1.8rem;
-    color: #0b3d91; /* bleu professionnel */
-  }
-  main {
-    max-width: 900px;
-    margin: 30px auto;
-    padding: 0 15px;
-  }
-  /* Section Climatisation */
-  .section-clim {
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 3px 10px rgba(11,61,145,0.15);
-    margin-bottom: 40px;
-    overflow: hidden;
-  }
-  .section-clim h2 {
-    margin: 0;
-    background: #0b3d91;
-    color: #fff;
-    padding: 15px 20px;
-    cursor: pointer;
-    user-select: none;
-  }
-  .sub-section {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease, padding 0.4s ease;
-    background: #f0f5ff;
-    padding: 0 20px;
-  }
-  .sub-section.open {
-    max-height: 600px; /* assez grand pour contenu */
-    padding: 15px 20px 25px;
-  }
-  .sub-section p {
-    margin: 8px 0;
-  }
-
-  /* Packs Nettoyage */
-  .packs-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 25px;
-    justify-content: space-between;
-  }
-  .pack {
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 3px 12px rgba(11,61,145,0.12);
-    flex: 1 1 280px;
-    min-width: 280px;
-    max-width: 100%;
-    padding: 20px;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-  }
-  .pack h3 {
-    margin-top: 0;
-    color: #0b3d91;
-    font-weight: 700;
-  }
-  .pack p.description {
-    flex-grow: 1;
-    overflow-wrap: break-word;
-    white-space: normal;
-    margin-bottom: 15px;
-    line-height: 1.4;
-    color: #444;
-  }
-  .pack .duration-price {
-    font-weight: 600;
-    color: #0b3d91;
-    margin-top: auto;
-  }
-
-  /* Responsive */
-  @media (max-width: 600px) {
-    .packs-container {
-      flex-direction: column;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Perez Atelier - Climatisation et Nettoyage Auto</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: #f7f9fb;
+      color: #222;
     }
-  }
-</style>
+
+    header {
+      background: #ffffff;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 20px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header img {
+      height: 60px;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 1.8rem;
+    }
+
+    h2 {
+      font-size: 1.3rem;
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .section {
+      max-width: 900px;
+      margin: 40px auto;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      padding: 30px;
+    }
+
+    .box {
+      margin-bottom: 20px;
+      border: 1px solid #d3e0ea;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #f9fbfd;
+      box-shadow: inset 0 0 6px rgba(0,0,0,0.05);
+    }
+
+    .box-title {
+      background: #e7f2fa;
+      padding: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .box-title:hover {
+      background: #dff0ff;
+    }
+
+    .box-content {
+      display: none;
+      padding: 15px;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 8px 14px;
+      background: #e0f0ff;
+      color: #1a1a1a;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background: #d1eaff;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(5px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 0.9rem;
+      color: #888;
+    }
+  </style>
 </head>
 <body>
 
-<header>
-  <img src="images/logo-perezatelier.png" alt="Logo Perez Atelier" id="logo" />
-  <h1>Perez Atelier</h1>
-</header>
+  <header>
+    <img src="logo-perezatelier.png" alt="Logo Perez Atelier" />
+    <h1>Perez Atelier</h1>
+    <p>Climatisation et Nettoyage Automobile</p>
+  </header>
 
-<main>
+  <section class="section">
+    <h2>Climatisation</h2>
 
-<section class="section-clim">
-  <h2 tabindex="0" aria-expanded="false">Ancien gaz (1994-2016)</h2>
-  <div class="sub-section" aria-hidden="true">
-    <p><strong>R134a</strong></p>
-    <p>Tarif : 80 €</p>
-    <p>Durée : Environ 45 min</p>
-    <p>Technique : Recharge classique de gaz R134a pour véhicules anciens.</p>
-  </div>
-
-  <h2 tabindex="0" aria-expanded="false">Nouveau gaz (2017+)</h2>
-  <div class="sub-section" aria-hidden="true">
-    <p><strong>R1234yf</strong></p>
-    <p>Tarif : 140 €</p>
-    <p>Durée : Environ 50 min</p>
-    <p>Technique : Recharge gaz nouvelle génération R1234yf, plus écologique.</p>
-  </div>
-
-  <h2 tabindex="0" aria-expanded="false">Recherche de fuite</h2>
-  <div class="sub-section" aria-hidden="true">
-    <p>Tarif : 60 €</p>
-    <p>Durée : Environ 30 min</p>
-    <p>Technique : Recherche de fuite à l’azote hydrogéné pour détection précise.</p>
-  </div>
-</section>
-
-<section>
-  <h2>Nos Packs de Nettoyage Auto</h2>
-  <div class="packs-container">
-    <div class="pack">
-      <h3>Pack Essentiel</h3>
-      <p class="description">Nettoyage intérieur rapide, aspiration complète, dépoussiérage des surfaces, lavage des vitres, traitement des plastiques.</p>
-      <p class="duration-price">Durée : 1h - Prix : 50€ à 70€ selon véhicule</p>
+    <div class="box">
+      <div class="box-title">Ancien gaz (1994-2016)
+        <div class="btn" onclick="toggleBox(this)">En savoir plus</div>
+      </div>
+      <div class="box-content">
+        <p><strong>Gaz R134a</strong> – Recharge complète : <strong>80€</strong><br>Durée : 45 minutes<br>Convient aux véhicules fabriqués entre 1994 et 2016.</p>
+      </div>
     </div>
-    <div class="pack">
-      <h3>Pack Sublime</h3>
-      <p class="description">Nettoyage complet intérieur et extérieur, shampoing tapis, nettoyage des cuirs, traitement des plastiques avec finition brillante.</p>
-      <p class="duration-price">Durée : 2h - Prix : 90€ à 130€ selon véhicule</p>
-    </div>
-    <div class="pack">
-      <h3>Pack Intégrale</h3>
-      <p class="description">Rénovation complète intérieure et extérieure, détachage, lustrage carrosserie, traitement anti-UV plastiques, nettoyage jantes et pneus.</p>
-      <p class="duration-price">Durée : 3h - Prix : 150€ à 200€ selon véhicule</p>
-    </div>
-  </div>
-</section>
 
-<script>
-  // Accordéon simple pour la section climatisation
-  document.querySelectorAll('.section-clim h2').forEach((header) => {
-    header.addEventListener('click', () => {
-      const expanded = header.getAttribute('aria-expanded') === 'true';
-      // Fermer tous les autres
-      document.querySelectorAll('.section-clim h2').forEach(h => {
-        h.setAttribute('aria-expanded', 'false');
-        h.nextElementSibling.classList.remove('open');
-        h.nextElementSibling.setAttribute('aria-hidden', 'true');
-      });
-      // Ouvrir celui cliqué si fermé
-      if (!expanded) {
-        header.setAttribute('aria-expanded', 'true');
-        header.nextElementSibling.classList.add('open');
-        header.nextElementSibling.setAttribute('aria-hidden', 'false');
-      }
-    });
-    // Gestion au clavier (Enter ou Espace)
-    header.addEventListener('keydown', e => {
-      if(e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        header.click();
-      }
-    });
-  });
-</script>
+    <div class="box">
+      <div class="box-title">Nouveau gaz (2017+)
+        <div class="btn" onclick="toggleBox(this)">En savoir plus</div>
+      </div>
+      <div class="box-content">
+        <p><strong>Gaz R1234yf</strong> – Recharge complète : <strong>140€</strong><br>Durée : 1 heure<br>Gaz écologique recommandé pour véhicules récents.</p>
+      </div>
+    </div>
+
+    <div class="box">
+      <div class="box-title">Recherche de fuite à l’azote hydrogéné
+        <div class="btn" onclick="toggleBox(this)">En savoir plus</div>
+      </div>
+      <div class="box-content">
+        <p><strong>Détection de fuite</strong> par injection d’azote hydrogéné : <strong>60€</strong><br>Durée : 30 à 45 minutes<br>Permet de détecter les micro-fuites dans le circuit.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Nettoyage automobile (démarrage janvier 2027)</h2>
+
+    <div class="box">
+      <div class="box-title">Pack Essentiel
+        <div class="btn" onclick="toggleBox(this)">En savoir plus</div>
+      </div>
+      <div class="box-content">
+        <p>Nettoyage extérieur + aspiration rapide.</p>
+        <ul>
+          <li>Prélavage mousse active</li>
+          <li>Rinçage haute pression</li>
+          <li>Séchage manuel</li>
+          <li>Aspiration tapis et sièges</li>
+        </ul>
+        <p><strong>Durée :</strong> 45 min - 1h<br><strong>Prix :</strong> à partir de 40€ selon gabarit</p>
+      </div>
+    </div>
+
+    <div class="box">
+      <div class="box-title">Pack Sublime
+        <div class="btn" onclick="toggleBox(this)">En savoir plus</div>
+      </div>
+      <div class="box-content">
+        <p>Nettoyage intérieur complet + extérieur soigné.</p>
+        <ul>
+          <li>Toutes prestations du pack Essentiel</li>
+          <li>Dépoussiérage plastiques</li>
+          <li>Nettoyage vitres intérieur/extérieur</li>
+          <li>Désinfection vapeur habitacle</li>
+        </ul>
+        <p><strong>Durée :</strong> 1h30 - 2h<br><strong>Prix :</strong> à partir de 70€ selon gabarit</p>
+      </div>
+    </div>
+
+    <div class="box">
+      <div class="box-title">Pack Intégrale
+        <div class="btn" onclick="toggleBox(this)">En savoir plus</div>
+      </div>
+      <div class="box-content">
+        <p>Préparation esthétique complète intérieur & extérieur.</p>
+        <ul>
+          <li>Toutes prestations des packs précédents</li>
+          <li>Shampoing des sièges / moquettes</li>
+          <li>Protection céramique carrosserie</li>
+          <li>Rénovation plastique intérieur & extérieur</li>
+        </ul>
+        <p><strong>Durée :</strong> 3h - 4h30<br><strong>Prix :</strong> à partir de 120€ selon gabarit</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Perez Atelier — Tous droits réservés.
+  </footer>
+
+  <script>
+    function toggleBox(btn) {
+      const content = btn.parentElement.nextElementSibling;
+      const isOpen = content.style.display === 'block';
+      document.querySelectorAll('.box-content').forEach(el => el.style.display = 'none');
+      if (!isOpen) content.style.display = 'block';
+    }
+  </script>
 
 </body>
 </html>
