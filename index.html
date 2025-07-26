@@ -1,204 +1,104 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Perez Atelier - Climatisation & Nettoyage Auto</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
-  <style>
-    body {
-      font-family: 'Montserrat', sans-serif;
-      margin: 0;
-      background-color: #f5f7f9;
-      color: #222;
-    }
-
-    header {
-      background: white;
-      padding: 10px 20px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    header img {
-      height: 50px;
-    }
-
-    header h1 {
-      font-size: 22px;
-      margin: 0;
-      color: #2a466e;
-    }
-
-    h2 {
-      color: #2a466e;
-      font-size: 22px;
-      margin-top: 40px;
-      text-align: center;
-    }
-
-    .section {
-      max-width: 900px;
-      margin: 20px auto;
-      background: #fff;
-      border-radius: 10px;
-      padding: 20px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    }
-
-    .toggle {
-      margin: 15px 0;
-      background: #e8f0ff;
-      border: none;
-      color: #1a3d68;
-      font-weight: bold;
-      padding: 12px 16px;
-      width: 100%;
-      text-align: left;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-
-    .toggle:hover {
-      background: #d2e5ff;
-    }
-
-    .content {
-      display: none;
-      padding: 10px 15px;
-      animation: fadeSlide 0.4s ease-in-out;
-    }
-
-    @keyframes fadeSlide {
-      from {
-        opacity: 0;
-        transform: translateY(-10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .pack {
-      margin-top: 20px;
-      border-top: 1px solid #ddd;
-      padding-top: 15px;
-    }
-
-    .pack img {
-      height: 40px;
-      vertical-align: middle;
-      margin-right: 10px;
-    }
-
-    .desc {
-      font-style: italic;
-      color: #444;
-      margin-bottom: 10px;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      color: #777;
-      font-size: 14px;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Perez Atelier – Clim & Auto</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
 </head>
 <body>
+  <header class="header">
+    <img src="logo.svg" alt="Logo Perez Atelier" class="logo" />
+    <h1>Perez Atelier</h1>
+    <p class="subtitle">Climatisation et nettoyage automobile</p>
+  </header>
 
-<header>
-  <img src="logo-perezatelier.png" alt="Perez Atelier Logo">
-  <h1>PEREZ ATELIER</h1>
-</header>
+  <main>
+    <section class="section fade-in">
+      <h2>Climatisation</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>Ancien gaz (1994–2016)</h3>
+          <button onclick="toggleDetail('r134a')">Voir détails</button>
+          <div id="r134a" class="details hidden">
+            <p><strong>Gaz : R134a</strong></p>
+            <p>Tarif : 80€</p>
+            <p>Durée : environ 45 min</p>
+            <p>Utilisé sur les véhicules immatriculés avant 2017. Vérification, récupération, tirage au vide et recharge complète inclus.</p>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Nouveau gaz (2017+)</h3>
+          <button onclick="toggleDetail('r1234yf')">Voir détails</button>
+          <div id="r1234yf" class="details hidden">
+            <p><strong>Gaz : R1234yf</strong></p>
+            <p>Tarif : 140€</p>
+            <p>Durée : environ 45 min</p>
+            <p>Compatible avec les véhicules récents. Gaz plus écologique, procédure complète incluse.</p>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Recherche de fuite</h3>
+          <button onclick="toggleDetail('fuite')">Voir détails</button>
+          <div id="fuite" class="details hidden">
+            <p>Tarif : 60€</p>
+            <p>Injection d’azote hydrogéné pour repérer précisément les fuites dans le circuit.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<section class="section">
-  <h2>Climatisation</h2>
+    <section class="section fade-in">
+      <h2>Nettoyage automobile (à partir de janvier 2027)</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>Pack Essentiel</h3>
+          <p class="short-desc">Nettoyage intérieur + extérieur rapide et soigné.</p>
+          <button onclick="toggleDetail('essentiel')">Voir détails</button>
+          <div id="essentiel" class="details hidden">
+            <p>Intérieur : aspirateur, dépoussiérage, vitres intérieures</p>
+            <p>Extérieur : lavage à la main, jantes, vitres</p>
+            <p>Durée : 1h30 à 2h</p>
+            <p>Tarif : 60–90€ selon gabarit</p>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Pack Sublime</h3>
+          <p class="short-desc">Finition soignée + habitacle assaini.</p>
+          <button onclick="toggleDetail('sublime')">Voir détails</button>
+          <div id="sublime" class="details hidden">
+            <p>Essentiel + soins plastiques, tissus, vitres ext. & traitement odeurs</p>
+            <p>Durée : 2h30 à 3h</p>
+            <p>Tarif : 90–130€ selon gabarit</p>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Pack Intégrale</h3>
+          <p class="short-desc">Rénovation complète intérieur & extérieur.</p>
+          <button onclick="toggleDetail('integrale')">Voir détails</button>
+          <div id="integrale" class="details hidden">
+            <p>Inclut Sublime + décontamination carrosserie, polish léger, finitions moteur (sans eau)</p>
+            <p>Durée : 4h à 5h</p>
+            <p>Tarif : 130–180€ selon gabarit</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
-  <button class="toggle">Ancien gaz (R134a) — véhicules entre 1994 et 2016</button>
-  <div class="content">
-    <p><strong>Nom du gaz :</strong> R134a</p>
-    <p><strong>Prix :</strong> 80€</p>
-    <p><strong>Durée :</strong> Environ 30 minutes</p>
-    <p><strong>Détails :</strong> Recharge du circuit, contrôle de pression, vérification de performance.</p>
-  </div>
+  <footer>
+    <p>© 2025 Perez Atelier – Toulouse</p>
+    <a href="https://calendly.com/perezatelier31" target="_blank">Prendre RDV</a>
+  </footer>
 
-  <button class="toggle">Nouveau gaz (R1234yf) — véhicules à partir de 2017</button>
-  <div class="content">
-    <p><strong>Nom du gaz :</strong> R1234yf</p>
-    <p><strong>Prix :</strong> 140€</p>
-    <p><strong>Durée :</strong> Environ 45 minutes</p>
-    <p><strong>Détails :</strong> Recharge du nouveau fluide éco-responsable, contrôle du circuit, performance & sécurité.</p>
-  </div>
-
-  <button class="toggle">Recherche de fuite à l’azote hydrogéné</button>
-  <div class="content">
-    <p><strong>Prix :</strong> 60€</p>
-    <p><strong>Étapes :</strong> Purge du circuit, injection d’azote hydrogéné, détection par capteur, contrôle visuel.</p>
-    <p><strong>Justification :</strong> Cette méthode est précise, sans démontage, efficace pour localiser micro-fuites et prévenir toute rechute.</p>
-  </div>
-</section>
-
-<section class="section">
-  <h2>Nettoyage Auto</h2>
-
-  <div class="pack">
-    <h3>✨ Pack Essentiel</h3>
-    <p class="desc">L’entretien soigné du quotidien.</p>
-    <p><strong>Durée :</strong> 1h15</p>
-    <p><strong>Prix :</strong> de 60€ à 90€ selon le gabarit</p>
-    <ul>
-      <li>Prélavage mousse active</li>
-      <li>Lavage manuel sans micro-rayures</li>
-      <li>Jantes & pneus nettoyés</li>
-      <li>Intérieur : aspirateur, plastiques dépoussiérés</li>
-    </ul>
-  </div>
-
-  <div class="pack">
-    <h3>💎 Pack Sublime</h3>
-    <p class="desc">Finition parfaite & habitacle désinfecté.</p>
-    <p><strong>Durée :</strong> 2h</p>
-    <p><strong>Prix :</strong> de 90€ à 130€ selon le gabarit</p>
-    <ul>
-      <li>Toutes prestations du pack Essentiel</li>
-      <li>Shampoing moquettes</li>
-      <li>Nettoyage vapeur des plastiques</li>
-      <li>Désinfection clim & habitacle</li>
-    </ul>
-  </div>
-
-  <div class="pack">
-    <h3>🚘 Pack Intégrale</h3>
-    <p class="desc">Rénovation complète intérieure & extérieure.</p>
-    <p><strong>Durée :</strong> 3h à 4h</p>
-    <p><strong>Prix :</strong> de 140€ à 190€ selon le gabarit</p>
-    <ul>
-      <li>Prestations du pack Sublime</li>
-      <li>Rénovation plastiques extérieurs</li>
-      <li>Shampoing sièges</li>
-      <li>Dressing pneus & finitions haut de gamme</li>
-    </ul>
-  </div>
-</section>
-
-<footer>
-  &copy; 2025 Perez Atelier — Climatisation & Nettoyage Auto
-</footer>
-
-<script>
-  const toggles = document.querySelectorAll('.toggle');
-  toggles.forEach(button => {
-    button.addEventListener('click', () => {
-      const content = button.nextElementSibling;
-      content.style.display = content.style.display === 'block' ? 'none' : 'block';
-    });
-  });
-</script>
-
+  <script>
+    function toggleDetail(id) {
+      const el = document.getElementById(id);
+      el.classList.toggle('hidden');
+      el.classList.toggle('slide-down');
+    }
+  </script>
 </body>
 </html>
