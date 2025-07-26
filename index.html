@@ -2,43 +2,31 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Perez Atelier - Climatisation et Nettoyage Auto</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
   <style>
     body {
-      margin: 0;
-      font-family: 'Montserrat', sans-serif;
-      background: #f7f9fb;
-      color: #222;
+      margin: 0; font-family: 'Montserrat', sans-serif;
+      background: #f7f9fb; color: #222;
     }
-
     header {
-      background: #ffffff;
+      background: #fff;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       padding: 20px;
       text-align: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
+      position: sticky; top: 0; z-index: 1000;
     }
-
     header img {
       height: 60px;
       margin-bottom: 10px;
     }
-
     h1 {
-      margin: 0;
-      font-size: 1.8rem;
+      margin: 0; font-size: 1.8rem;
     }
-
     h2 {
-      font-size: 1.3rem;
-      margin-top: 40px;
-      text-align: center;
+      font-size: 1.3rem; margin-top: 40px; text-align: center;
     }
-
     .section {
       max-width: 900px;
       margin: 40px auto;
@@ -47,37 +35,24 @@
       box-shadow: 0 4px 20px rgba(0,0,0,0.08);
       padding: 30px;
     }
-
     .box {
       margin-bottom: 20px;
       border: 1px solid #d3e0ea;
       border-radius: 8px;
-      overflow: hidden;
       background: #f9fbfd;
       box-shadow: inset 0 0 6px rgba(0,0,0,0.05);
+      overflow: hidden;
     }
-
     .box-title {
       background: #e7f2fa;
       padding: 15px;
       font-weight: 600;
-      cursor: pointer;
-      position: relative;
+      user-select: none;
+      font-size: 1.1rem;
     }
-
-    .box-title:hover {
-      background: #dff0ff;
-    }
-
-    .box-content {
-      display: none;
-      padding: 15px;
-      animation: fadeIn 0.3s ease-in-out;
-    }
-
     .btn {
       display: inline-block;
-      margin-top: 10px;
+      margin: 10px 0 15px;
       padding: 8px 14px;
       background: #e0f0ff;
       color: #1a1a1a;
@@ -86,17 +61,30 @@
       font-size: 0.9rem;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
       transition: background 0.3s;
+      user-select: none;
+      text-align: center;
+      width: max-content;
+      margin-left: 15px;
     }
-
     .btn:hover {
       background: #d1eaff;
     }
-
+    .box-content {
+      display: none;
+      padding: 15px;
+      animation: fadeIn 0.3s ease-in-out;
+      font-size: 0.95rem;
+      line-height: 1.4;
+      color: #333;
+    }
+    ul {
+      margin: 10px 0 0 20px;
+      padding: 0;
+    }
     @keyframes fadeIn {
       from {opacity: 0; transform: translateY(5px);}
       to {opacity: 1; transform: translateY(0);}
     }
-
     footer {
       text-align: center;
       padding: 30px;
@@ -113,45 +101,41 @@
     <p>Climatisation et Nettoyage Automobile</p>
   </header>
 
-  <section class="section">
+  <section class="section" aria-label="Climatisation">
     <h2>Climatisation</h2>
 
     <div class="box">
-      <div class="box-title">Ancien gaz (1994-2016)
-        <div class="btn" onclick="toggleBox(this)">En savoir plus</div>
-      </div>
-      <div class="box-content">
+      <div class="box-title">Ancien gaz (1994-2016)</div>
+      <div class="btn" role="button" tabindex="0" aria-expanded="false" aria-controls="content-ancien" onclick="toggleContent('content-ancien', this)" onkeydown="if(event.key==='Enter' || event.key===' ') toggleContent('content-ancien', this)">En savoir plus</div>
+      <div id="content-ancien" class="box-content" aria-hidden="true">
         <p><strong>Gaz R134a</strong> – Recharge complète : <strong>80€</strong><br>Durée : 45 minutes<br>Convient aux véhicules fabriqués entre 1994 et 2016.</p>
       </div>
     </div>
 
     <div class="box">
-      <div class="box-title">Nouveau gaz (2017+)
-        <div class="btn" onclick="toggleBox(this)">En savoir plus</div>
-      </div>
-      <div class="box-content">
+      <div class="box-title">Nouveau gaz (2017+)</div>
+      <div class="btn" role="button" tabindex="0" aria-expanded="false" aria-controls="content-nouveau" onclick="toggleContent('content-nouveau', this)" onkeydown="if(event.key==='Enter' || event.key===' ') toggleContent('content-nouveau', this)">En savoir plus</div>
+      <div id="content-nouveau" class="box-content" aria-hidden="true">
         <p><strong>Gaz R1234yf</strong> – Recharge complète : <strong>140€</strong><br>Durée : 1 heure<br>Gaz écologique recommandé pour véhicules récents.</p>
       </div>
     </div>
 
     <div class="box">
-      <div class="box-title">Recherche de fuite à l’azote hydrogéné
-        <div class="btn" onclick="toggleBox(this)">En savoir plus</div>
-      </div>
-      <div class="box-content">
+      <div class="box-title">Recherche de fuite à l’azote hydrogéné</div>
+      <div class="btn" role="button" tabindex="0" aria-expanded="false" aria-controls="content-fuite" onclick="toggleContent('content-fuite', this)" onkeydown="if(event.key==='Enter' || event.key===' ') toggleContent('content-fuite', this)">En savoir plus</div>
+      <div id="content-fuite" class="box-content" aria-hidden="true">
         <p><strong>Détection de fuite</strong> par injection d’azote hydrogéné : <strong>60€</strong><br>Durée : 30 à 45 minutes<br>Permet de détecter les micro-fuites dans le circuit.</p>
       </div>
     </div>
   </section>
 
-  <section class="section">
+  <section class="section" aria-label="Nettoyage automobile">
     <h2>Nettoyage automobile (démarrage janvier 2027)</h2>
 
     <div class="box">
-      <div class="box-title">Pack Essentiel
-        <div class="btn" onclick="toggleBox(this)">En savoir plus</div>
-      </div>
-      <div class="box-content">
+      <div class="box-title">Pack Essentiel</div>
+      <div class="btn" role="button" tabindex="0" aria-expanded="false" aria-controls="content-essentiel" onclick="toggleContent('content-essentiel', this)" onkeydown="if(event.key==='Enter' || event.key===' ') toggleContent('content-essentiel', this)">En savoir plus</div>
+      <div id="content-essentiel" class="box-content" aria-hidden="true">
         <p>Nettoyage extérieur + aspiration rapide.</p>
         <ul>
           <li>Prélavage mousse active</li>
@@ -159,15 +143,14 @@
           <li>Séchage manuel</li>
           <li>Aspiration tapis et sièges</li>
         </ul>
-        <p><strong>Durée :</strong> 45 min - 1h<br><strong>Prix :</strong> à partir de 40€ selon gabarit</p>
+        <p><strong>Durée :</strong> 45 min - 1h<br><strong>Prix :</strong> 50€ à 70€ selon gabarit</p>
       </div>
     </div>
 
     <div class="box">
-      <div class="box-title">Pack Sublime
-        <div class="btn" onclick="toggleBox(this)">En savoir plus</div>
-      </div>
-      <div class="box-content">
+      <div class="box-title">Pack Sublime</div>
+      <div class="btn" role="button" tabindex="0" aria-expanded="false" aria-controls="content-sublime" onclick="toggleContent('content-sublime', this)" onkeydown="if(event.key==='Enter' || event.key===' ') toggleContent('content-sublime', this)">En savoir plus</div>
+      <div id="content-sublime" class="box-content" aria-hidden="true">
         <p>Nettoyage intérieur complet + extérieur soigné.</p>
         <ul>
           <li>Toutes prestations du pack Essentiel</li>
@@ -175,15 +158,14 @@
           <li>Nettoyage vitres intérieur/extérieur</li>
           <li>Désinfection vapeur habitacle</li>
         </ul>
-        <p><strong>Durée :</strong> 1h30 - 2h<br><strong>Prix :</strong> à partir de 70€ selon gabarit</p>
+        <p><strong>Durée :</strong> 1h30 - 2h<br><strong>Prix :</strong> 90€ à 130€ selon gabarit</p>
       </div>
     </div>
 
     <div class="box">
-      <div class="box-title">Pack Intégrale
-        <div class="btn" onclick="toggleBox(this)">En savoir plus</div>
-      </div>
-      <div class="box-content">
+      <div class="box-title">Pack Intégrale</div>
+      <div class="btn" role="button" tabindex="0" aria-expanded="false" aria-controls="content-integrale" onclick="toggleContent('content-integrale', this)" onkeydown="if(event.key==='Enter' || event.key===' ') toggleContent('content-integrale', this)">En savoir plus</div>
+      <div id="content-integrale" class="box-content" aria-hidden="true">
         <p>Préparation esthétique complète intérieur & extérieur.</p>
         <ul>
           <li>Toutes prestations des packs précédents</li>
@@ -191,7 +173,7 @@
           <li>Protection céramique carrosserie</li>
           <li>Rénovation plastique intérieur & extérieur</li>
         </ul>
-        <p><strong>Durée :</strong> 3h - 4h30<br><strong>Prix :</strong> à partir de 120€ selon gabarit</p>
+        <p><strong>Durée :</strong> 3h - 4h30<br><strong>Prix :</strong> 150€ à 200€ selon gabarit</p>
       </div>
     </div>
   </section>
@@ -201,13 +183,19 @@
   </footer>
 
   <script>
-    function toggleBox(btn) {
-      const content = btn.parentElement.nextElementSibling;
-      const isOpen = content.style.display === 'block';
-      document.querySelectorAll('.box-content').forEach(el => el.style.display = 'none');
-      if (!isOpen) content.style.display = 'block';
+    function toggleContent(id, btn) {
+      const content = document.getElementById(id);
+      const isVisible = content.style.display === 'block';
+      if (isVisible) {
+        content.style.display = 'none';
+        btn.setAttribute('aria-expanded', 'false');
+        content.setAttribute('aria-hidden', 'true');
+      } else {
+        content.style.display = 'block';
+        btn.setAttribute('aria-expanded', 'true');
+        content.setAttribute('aria-hidden', 'false');
+      }
     }
   </script>
-
 </body>
 </html>
