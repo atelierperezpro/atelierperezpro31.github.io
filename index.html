@@ -10,7 +10,7 @@
 </head>
 <body>
   <header class="header">
-    <img src="logo.svg" alt="Logo Perez Atelier" class="logo" />
+    <img src="logo_perezatelier_header.png" alt="Logo Perez Atelier" class="logo" />
     <h1>Perez Atelier</h1>
     <p class="subtitle">Climatisation et nettoyage automobile</p>
   </header>
@@ -26,7 +26,7 @@
             <p><strong>Gaz : R134a</strong></p>
             <p>Tarif : 80€</p>
             <p>Durée : environ 45 min</p>
-            <p>Utilisé sur les véhicules immatriculés avant 2017. Vérification, récupération, tirage au vide et recharge complète inclus.</p>
+            <p>Recharge complète avec tirage au vide, test de pression et contrôle de performance. Pour véhicules antérieurs à 2017.</p>
           </div>
         </div>
         <div class="card">
@@ -36,7 +36,7 @@
             <p><strong>Gaz : R1234yf</strong></p>
             <p>Tarif : 140€</p>
             <p>Durée : environ 45 min</p>
-            <p>Compatible avec les véhicules récents. Gaz plus écologique, procédure complète incluse.</p>
+            <p>Recharge complète avec gaz écologique, conforme aux normes actuelles. Contrôle pression, température et performance.</p>
           </div>
         </div>
         <div class="card">
@@ -44,7 +44,7 @@
           <button onclick="toggleDetail('fuite')">Voir détails</button>
           <div id="fuite" class="details hidden">
             <p>Tarif : 60€</p>
-            <p>Injection d’azote hydrogéné pour repérer précisément les fuites dans le circuit.</p>
+            <p>Injection d’azote hydrogéné pour détection précise des micro-fuites dans le circuit de climatisation. Recommandé avant toute recharge si perte de gaz suspectée.</p>
           </div>
         </div>
       </div>
@@ -58,30 +58,51 @@
           <p class="short-desc">Nettoyage intérieur + extérieur rapide et soigné.</p>
           <button onclick="toggleDetail('essentiel')">Voir détails</button>
           <div id="essentiel" class="details hidden">
-            <p>Intérieur : aspirateur, dépoussiérage, vitres intérieures</p>
-            <p>Extérieur : lavage à la main, jantes, vitres</p>
-            <p>Durée : 1h30 à 2h</p>
-            <p>Tarif : 60–90€ selon gabarit</p>
+            <p><strong>Intérieur :</strong></p>
+            <ul>
+              <li>Aspiration complète habitacle, tapis & coffre</li>
+              <li>Dépoussiérage plastiques et console</li>
+              <li>Nettoyage vitres intérieures</li>
+            </ul>
+            <p><strong>Extérieur :</strong></p>
+            <ul>
+              <li>Lavage manuel sans rayures</li>
+              <li>Nettoyage des jantes et vitres</li>
+            </ul>
+            <p><strong>Durée :</strong> 1h30 à 2h</p>
+            <p><strong>Tarif :</strong> 60–90€ selon gabarit</p>
           </div>
         </div>
+
         <div class="card">
           <h3>Pack Sublime</h3>
           <p class="short-desc">Finition soignée + habitacle assaini.</p>
           <button onclick="toggleDetail('sublime')">Voir détails</button>
           <div id="sublime" class="details hidden">
-            <p>Essentiel + soins plastiques, tissus, vitres ext. & traitement odeurs</p>
-            <p>Durée : 2h30 à 3h</p>
-            <p>Tarif : 90–130€ selon gabarit</p>
+            <p><strong>Inclus Pack Essentiel + :</strong></p>
+            <ul>
+              <li>Nettoyage et soin des plastiques et surfaces</li>
+              <li>Traitement anti-odeur et désinfection</li>
+              <li>Finition vitres extérieures</li>
+            </ul>
+            <p><strong>Durée :</strong> 2h30 à 3h</p>
+            <p><strong>Tarif :</strong> 90–130€ selon gabarit</p>
           </div>
         </div>
+
         <div class="card">
           <h3>Pack Intégrale</h3>
           <p class="short-desc">Rénovation complète intérieur & extérieur.</p>
           <button onclick="toggleDetail('integrale')">Voir détails</button>
           <div id="integrale" class="details hidden">
-            <p>Inclut Sublime + décontamination carrosserie, polish léger, finitions moteur (sans eau)</p>
-            <p>Durée : 4h à 5h</p>
-            <p>Tarif : 130–180€ selon gabarit</p>
+            <p><strong>Inclus Pack Sublime + :</strong></p>
+            <ul>
+              <li>Décontamination carrosserie + polish léger</li>
+              <li>Protection peinture (spray rapide ou cire)</li>
+              <li>Finitions jantes + traitement hydrophobe vitres</li>
+            </ul>
+            <p><strong>Durée :</strong> 4h à 5h</p>
+            <p><strong>Tarif :</strong> 130–180€ selon gabarit</p>
           </div>
         </div>
       </div>
