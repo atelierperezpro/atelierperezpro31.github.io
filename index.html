@@ -3,123 +3,115 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Perez Atelier – Clim & Auto</title>
+  <title>Perez Atelier - Climatisation & Nettoyage Auto</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="icon" type="image/png" href="favicon.png" />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="logo_perezatelier_header.png">
 </head>
 <body>
-  <header class="header">
-    <img src="logo_perezatelier_header.png" alt="Logo Perez Atelier" class="logo" />
+
+  <!-- Animation de chargement -->
+  <div id="loader">
+    <div class="spinner"></div>
+  </div>
+
+  <!-- En-tête avec logo -->
+  <header>
+    <img src="logo_perezatelier_header.png" alt="Perez Atelier Logo" class="logo" />
     <h1>Perez Atelier</h1>
-    <p class="subtitle">Climatisation et nettoyage automobile</p>
+    <p>Climatisation & Nettoyage automobile</p>
   </header>
 
-  <main>
-    <section class="section fade-in">
-      <h2>Climatisation</h2>
-      <div class="cards">
-        <div class="card">
-          <h3>Ancien gaz (1994–2016)</h3>
-          <button onclick="toggleDetail('r134a')">Voir détails</button>
-          <div id="r134a" class="details hidden">
-            <p><strong>Gaz : R134a</strong></p>
-            <p>Tarif : 80€</p>
-            <p>Durée : environ 45 min</p>
-            <p>Recharge complète avec tirage au vide, test de pression et contrôle de performance. Pour véhicules antérieurs à 2017.</p>
-          </div>
-        </div>
-        <div class="card">
-          <h3>Nouveau gaz (2017+)</h3>
-          <button onclick="toggleDetail('r1234yf')">Voir détails</button>
-          <div id="r1234yf" class="details hidden">
-            <p><strong>Gaz : R1234yf</strong></p>
-            <p>Tarif : 140€</p>
-            <p>Durée : environ 45 min</p>
-            <p>Recharge complète avec gaz écologique, conforme aux normes actuelles. Contrôle pression, température et performance.</p>
-          </div>
-        </div>
-        <div class="card">
-          <h3>Recherche de fuite</h3>
-          <button onclick="toggleDetail('fuite')">Voir détails</button>
-          <div id="fuite" class="details hidden">
-            <p>Tarif : 60€</p>
-            <p>Injection d’azote hydrogéné pour détection précise des micro-fuites dans le circuit de climatisation. Recommandé avant toute recharge si perte de gaz suspectée.</p>
-          </div>
-        </div>
+  <!-- Section Climatisation -->
+  <section class="section">
+    <h2>Climatisation</h2>
+    <div class="categorie" onclick="toggleDetails(this)">
+      <h3>Ancien gaz (R134a - 1994 à 2016)</h3>
+      <div class="details">
+        <p><strong>Prix :</strong> 80€</p>
+        <p><strong>Durée :</strong> 30 à 45 minutes</p>
       </div>
-    </section>
+    </div>
 
-    <section class="section fade-in">
-      <h2>Nettoyage automobile (à partir de janvier 2027)</h2>
-      <div class="cards">
-        <div class="card">
-          <h3>Pack Essentiel</h3>
-          <p class="short-desc">Nettoyage intérieur + extérieur rapide et soigné.</p>
-          <button onclick="toggleDetail('essentiel')">Voir détails</button>
-          <div id="essentiel" class="details hidden">
-            <p><strong>Intérieur :</strong></p>
-            <ul>
-              <li>Aspiration complète habitacle, tapis & coffre</li>
-              <li>Dépoussiérage plastiques et console</li>
-              <li>Nettoyage vitres intérieures</li>
-            </ul>
-            <p><strong>Extérieur :</strong></p>
-            <ul>
-              <li>Lavage manuel sans rayures</li>
-              <li>Nettoyage des jantes et vitres</li>
-            </ul>
-            <p><strong>Durée :</strong> 1h30 à 2h</p>
-            <p><strong>Tarif :</strong> 60–90€ selon gabarit</p>
-          </div>
-        </div>
-
-        <div class="card">
-          <h3>Pack Sublime</h3>
-          <p class="short-desc">Finition soignée + habitacle assaini.</p>
-          <button onclick="toggleDetail('sublime')">Voir détails</button>
-          <div id="sublime" class="details hidden">
-            <p><strong>Inclus Pack Essentiel + :</strong></p>
-            <ul>
-              <li>Nettoyage et soin des plastiques et surfaces</li>
-              <li>Traitement anti-odeur et désinfection</li>
-              <li>Finition vitres extérieures</li>
-            </ul>
-            <p><strong>Durée :</strong> 2h30 à 3h</p>
-            <p><strong>Tarif :</strong> 90–130€ selon gabarit</p>
-          </div>
-        </div>
-
-        <div class="card">
-          <h3>Pack Intégrale</h3>
-          <p class="short-desc">Rénovation complète intérieur & extérieur.</p>
-          <button onclick="toggleDetail('integrale')">Voir détails</button>
-          <div id="integrale" class="details hidden">
-            <p><strong>Inclus Pack Sublime + :</strong></p>
-            <ul>
-              <li>Décontamination carrosserie + polish léger</li>
-              <li>Protection peinture (spray rapide ou cire)</li>
-              <li>Finitions jantes + traitement hydrophobe vitres</li>
-            </ul>
-            <p><strong>Durée :</strong> 4h à 5h</p>
-            <p><strong>Tarif :</strong> 130–180€ selon gabarit</p>
-          </div>
-        </div>
+    <div class="categorie" onclick="toggleDetails(this)">
+      <h3>Nouveau gaz (R1234yf - 2017 et +)</h3>
+      <div class="details">
+        <p><strong>Prix :</strong> 140€</p>
+        <p><strong>Durée :</strong> 45 minutes à 1h</p>
       </div>
-    </section>
-  </main>
+    </div>
 
-  <footer>
-    <p>© 2025 Perez Atelier – Toulouse</p>
-    <a href="https://calendly.com/perezatelier31" target="_blank">Prendre RDV</a>
-  </footer>
+    <div class="categorie" onclick="toggleDetails(this)">
+      <h3>Recherche de fuite à l’azote hydrogéné</h3>
+      <div class="details">
+        <p><strong>Prix :</strong> 60€</p>
+        <p><strong>Durée :</strong> 30 à 45 minutes</p>
+      </div>
+    </div>
+  </section>
 
-  <script>
-    function toggleDetail(id) {
-      const el = document.getElementById(id);
-      el.classList.toggle('hidden');
-      el.classList.toggle('slide-down');
-    }
-  </script>
+  <!-- Section Nettoyage auto -->
+  <section class="section">
+    <h2>Nettoyage Automobile (dès janvier 2027)</h2>
+
+    <div class="pack" onclick="toggleDetails(this)">
+      <h3>Pack Essentiel</h3>
+      <p class="description">Un nettoyage intérieur / extérieur efficace pour l'entretien régulier.</p>
+      <div class="details">
+        <h4>Intérieur</h4>
+        <ul>
+          <li>Aspiration complète habitacle, tapis et coffre</li>
+          <li>Dépoussiérage tableau de bord et plastiques</li>
+          <li>Nettoyage des vitres intérieures</li>
+        </ul>
+        <h4>Extérieur</h4>
+        <ul>
+          <li>Lavage manuel sans rayures</li>
+          <li>Nettoyage des jantes</li>
+        </ul>
+        <p><strong>Durée :</strong> 1h30 à 2h<br>
+        <strong>Tarif :</strong> 60–90€ selon le gabarit</p>
+      </div>
+    </div>
+
+    <div class="pack" onclick="toggleDetails(this)">
+      <h3>Pack Sublime</h3>
+      <p class="description">Un soin approfondi pour valoriser l'apparence de votre véhicule.</p>
+      <div class="details">
+        <h4>Intérieur</h4>
+        <ul>
+          <li>Inclus Pack Essentiel + Nettoyage des plastiques</li>
+          <li>Désinfection de l’habitacle</li>
+        </ul>
+        <h4>Extérieur</h4>
+        <ul>
+          <li>Lustrage à la main</li>
+          <li>Application d’une protection carrosserie</li>
+        </ul>
+        <p><strong>Durée :</strong> 2h30 à 3h<br>
+        <strong>Tarif :</strong> 100–140€ selon gabarit</p>
+      </div>
+    </div>
+
+    <div class="pack" onclick="toggleDetails(this)">
+      <h3>Pack Intégrale</h3>
+      <p class="description">Le traitement haut de gamme complet de l’intérieur à l’extérieur.</p>
+      <div class="details">
+        <h4>Intérieur</h4>
+        <ul>
+          <li>Shampoing sièges et moquettes</li>
+          <li>Traitement anti-odeur et vapeur</li>
+        </ul>
+        <h4>Extérieur</h4>
+        <ul>
+          <li>Décontamination peinture</li>
+          <li>Polish + Cire de protection longue durée</li>
+        </ul>
+        <p><strong>Durée :</strong> 4 à 5h<br>
+        <strong>Tarif :</strong> 180–250€ selon gabarit</p>
+      </div>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
 </body>
 </html>
