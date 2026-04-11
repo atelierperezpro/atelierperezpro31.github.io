@@ -25,11 +25,14 @@
 –cyan:    #00D4B8;
 }
 
-html { scroll-behavior: smooth; }
+html {
+scroll-behavior: smooth;
+background: #080A0C;
+}
 
 body {
-background: var(–black);
-color: var(–white);
+background: #080A0C;
+color: #EDF1F5;
 font-family: ‘DM Sans’, sans-serif;
 font-weight: 300;
 overflow-x: hidden;
@@ -158,11 +161,13 @@ animation: fadeUp 0.8s 0.2s forwards;
 
 .hero-title {
 font-family: ‘Bebas Neue’, sans-serif;
-font-size: clamp(72px, 10vw, 148px);
+font-size: clamp(56px, 10vw, 148px);
 line-height: 0.92;
 letter-spacing: -0.01em;
 color: var(–white);
 max-width: 900px;
+word-break: break-word;
+overflow-wrap: break-word;
 opacity: 0;
 animation: fadeUp 0.9s 0.35s forwards;
 }
@@ -477,10 +482,16 @@ transition: transform 0.4s;
 .service-card:hover { background: #161A1E; transform: translateY(-4px); }
 
 .service-icon {
-font-size: 28px;
+width: 14px;
+height: 14px;
+border-radius: 50%;
 margin-bottom: 24px;
 display: block;
 }
+
+.dot-blue1  { background: #3D9EFF; box-shadow: 0 0 12px rgba(61,158,255,0.5); }
+.dot-blue2  { background: #1A6FD4; box-shadow: 0 0 12px rgba(26,111,212,0.5); }
+.dot-cyan   { background: #00D4B8; box-shadow: 0 0 12px rgba(0,212,184,0.5); }
 
 .service-name {
 font-family: ‘Bebas Neue’, sans-serif;
@@ -981,19 +992,19 @@ footer {
 
   <div class="services-grid reveal">
     <div class="service-card">
-      <span class="service-icon">🔵</span>
+      <span class="service-icon dot-blue1"></span>
       <div class="service-name">R134a</div>
       <p class="service-desc">Recharge climatisation ancien gaz. Compatible avec la majorité des véhicules pré-2017. Procédure complète, vide et charge mesurés.</p>
       <div class="service-price">80<sup>€</sup></div>
     </div>
     <div class="service-card">
-      <span class="service-icon">💎</span>
+      <span class="service-icon dot-blue2"></span>
       <div class="service-name">R1234yf</div>
       <p class="service-desc">Nouveau gaz pour véhicules récents. Procédure homologuée, matériel certifié. Résultat identique à la concession, sans le délai.</p>
       <div class="service-price">140<sup>€</sup></div>
     </div>
     <div class="service-card">
-      <span class="service-icon">🔍</span>
+      <span class="service-icon dot-cyan"></span>
       <div class="service-name">Recherche de fuite</div>
       <p class="service-desc">Injection d'azote hydrogéné, détection de toute fuite sur le circuit. Rapport d'intervention transmis. Diagnostic documenté.</p>
       <div class="service-price">60<sup>€</sup></div>
@@ -1086,7 +1097,7 @@ footer {
     <li>Rapport d'intervention par véhicule</li>
     <li>Disponibilité régulière, partenariat durable</li>
   </ul>
-  <a href="mailto:perezatelier31@gmail.com" class="btn-ghost">Demander un devis pro</a>
+  <a href="/cdn-cgi/l/email-protection#17677265726d7663727b7e7265242657707a767e7b3974787a" class="btn-ghost">Demander un devis pro</a>
 </div>
 ```
 
@@ -1166,7 +1177,7 @@ footer {
         <div class="contact-icon">✉</div>
         <div>
           <div class="contact-label">Email</div>
-          <a href="mailto:perezatelier31@gmail.com" class="contact-value">perezatelier31@gmail.com</a>
+          <a href="/cdn-cgi/l/email-protection#c2b2a7b0a7b8a3b6a7aeaba7b0f1f382a5afa3abaeeca1adaf" class="contact-value"><span class="__cf_email__" data-cfemail="a3d3c6d1c6d9c2d7c6cfcac6d19092e3c4cec2cacf8dc0ccce">[email&#160;protected]</span></a>
         </div>
       </div>
       <div class="contact-item">
@@ -1211,32 +1222,21 @@ footer {
 
 <a href="https://wa.me/33763701411" target="_blank" class="wa-float" title="WhatsApp">💬</a>
 
-<script>
-  // Scroll reveal
-  const reveals = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
-      if (entry.isIntersecting) {
-        setTimeout(() => {
-          entry.target.classList.add('visible');
-        }, 100);
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1 });
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 
-  reveals.forEach(el => observer.observe(el));
+// Scroll reveal
+const reveals = document.querySelectorAll(’.reveal’);
+const observer = new IntersectionObserver((entries) => {
+entries.forEach((entry, i) => {
+if (entry.isIntersecting) {
+setTimeout(() => {
+entry.target.classList.add(‘visible’);
+}, 100);
+observer.unobserve(entry.target);
+}
+});
+}, { threshold: 0.1 });
 
-  // Nav scroll effect
-  window.addEventListener('scroll', () => {
-    const nav = document.querySelector('nav');
-    if (window.scrollY > 60) {
-      nav.style.borderBottomColor = 'rgba(255,255,255,0.04)';
-    } else {
-      nav.style.borderBottomColor = 'rgba(255,255,255,0.07)';
-    }
-  });
-</script>
+reveals.forEach(el => observer.observe(el));
 
-</body>
-</html>
+// Nav scroll effec
