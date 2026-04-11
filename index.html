@@ -17,17 +17,19 @@
     }
 
     :root {
-      --bg: #030303;
-      --panel: #0a0a0a;
-      --panel-2: #0d0d0d;
-      --line: rgba(255,255,255,0.08);
+      --bg: #020406;
+      --panel: #06090d;
+      --panel-2: #0a0e13;
+      --line: rgba(190, 205, 220, 0.12);
 
-      --text: #efebe4;
-      --text-soft: #cfc8bf;
-      --text-muted: #6f6b66;
+      --text: #eef3f7;
+      --text-soft: #bcc7d1;
+      --text-muted: #6f7b87;
 
-      --accent: #c9a46a;
-      --accent-text: #17130f;
+      --accent: #7fa6c9;
+      --accent-soft: #9eb8cf;
+      --sand: #d5b07a;
+      --sand-text: #18130d;
 
       --max: 1480px;
     }
@@ -39,7 +41,9 @@
     }
 
     body {
-      background: var(--bg);
+      background:
+        radial-gradient(circle at top right, rgba(127,166,201,0.08), transparent 28%),
+        linear-gradient(180deg, #020406 0%, #030507 100%);
       color: var(--text);
       font-family: "Inter", sans-serif;
       overflow-x: hidden;
@@ -69,8 +73,8 @@
       left: 0;
       right: 0;
       z-index: 50;
-      background: rgba(3,3,3,0.94);
-      border-bottom: 1px solid var(--line);
+      background: rgba(2,4,6,0.92);
+      border-bottom: 1px solid rgba(190,205,220,0.08);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
     }
@@ -95,19 +99,19 @@
     }
 
     .brand .dot {
-      color: var(--accent);
+      color: var(--sand);
     }
 
     .nav-cta {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 68px;
-      padding: 0 32px;
+      min-height: 64px;
+      padding: 0 30px;
       border-radius: 999px;
-      background: var(--accent);
-      color: var(--accent-text);
-      font-size: 0.92rem;
+      background: var(--sand);
+      color: var(--sand-text);
+      font-size: 0.88rem;
       font-weight: 600;
       letter-spacing: 0.14em;
       text-transform: uppercase;
@@ -121,31 +125,31 @@
     }
 
     .hero-space {
-      height: 114px;
+      height: 108px;
     }
 
     .section {
       padding: 78px 0;
-      border-top: 1px solid var(--line);
+      border-top: 1px solid rgba(190,205,220,0.08);
     }
 
     .label {
       display: inline-flex;
       align-items: center;
       gap: 16px;
-      margin-bottom: 26px;
-      color: var(--accent);
+      margin-bottom: 24px;
+      color: var(--accent-soft);
       font-size: 0.8rem;
-      letter-spacing: 0.32em;
+      letter-spacing: 0.28em;
       text-transform: uppercase;
       white-space: nowrap;
     }
 
     .label::before {
       content: "";
-      width: 48px;
+      width: 44px;
       height: 1px;
-      background: var(--accent);
+      background: var(--accent-soft);
       display: block;
       flex: 0 0 auto;
     }
@@ -154,17 +158,17 @@
       font-family: "Oswald", sans-serif;
       font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: -0.03em;
-      line-height: 0.92;
-      font-size: clamp(3.8rem, 10vw, 8.8rem);
+      letter-spacing: -0.04em;
+      line-height: 0.9;
+      font-size: clamp(3.3rem, 11vw, 8rem);
       color: var(--text);
-      max-width: 1200px;
+      max-width: 1220px;
     }
 
     .section-copy {
-      max-width: 1080px;
-      margin-top: 30px;
-      font-size: clamp(1.02rem, 2vw, 1.35rem);
+      max-width: 1050px;
+      margin-top: 28px;
+      font-size: clamp(1rem, 2vw, 1.25rem);
       line-height: 1.9;
       color: var(--text-soft);
     }
@@ -184,23 +188,25 @@
     .contact-card,
     .zone-card,
     .method-card {
-      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border: 1px solid var(--line);
-      border-radius: 18px;
+      background: rgba(7,10,14,0.72);
+      border: 1px solid rgba(190,205,220,0.10);
+      border-radius: 16px;
       padding: 30px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.02);
     }
 
     .service-dot {
-      width: 15px;
-      height: 15px;
+      width: 14px;
+      height: 14px;
       border-radius: 50%;
       background: var(--accent);
-      margin-bottom: 22px;
+      margin-bottom: 20px;
+      box-shadow: 0 0 18px rgba(127,166,201,0.22);
     }
 
     .card-title {
       font-family: "Oswald", sans-serif;
-      font-size: clamp(2.4rem, 5vw, 4rem);
+      font-size: clamp(2.2rem, 5vw, 3.7rem);
       line-height: 0.96;
       text-transform: uppercase;
       letter-spacing: -0.03em;
@@ -218,7 +224,7 @@
     .card-price {
       margin-top: 22px;
       font-family: "Oswald", sans-serif;
-      font-size: clamp(3rem, 6vw, 4.8rem);
+      font-size: clamp(2.8rem, 6vw, 4.5rem);
       line-height: 1;
       text-transform: uppercase;
       color: var(--text);
@@ -233,15 +239,15 @@
     }
 
     .steps {
-      border: 1px solid var(--line);
-      border-radius: 18px;
+      border: 1px solid rgba(190,205,220,0.10);
+      border-radius: 16px;
       overflow: hidden;
-      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      background: rgba(7,10,14,0.72);
     }
 
     .step {
       padding: 26px 28px;
-      border-top: 1px solid var(--line);
+      border-top: 1px solid rgba(190,205,220,0.10);
     }
 
     .step:first-child {
@@ -250,14 +256,14 @@
 
     .step-number {
       font-family: "Oswald", sans-serif;
-      font-size: 1.15rem;
+      font-size: 1.12rem;
       letter-spacing: 0.12em;
-      color: var(--accent);
+      color: var(--accent-soft);
       margin-bottom: 10px;
     }
 
     .step h3 {
-      font-size: 1.16rem;
+      font-size: 1.14rem;
       margin-bottom: 10px;
       color: var(--text);
       font-weight: 500;
@@ -271,7 +277,7 @@
 
     .metric {
       padding: 22px 0;
-      border-top: 1px solid var(--line);
+      border-top: 1px solid rgba(190,205,220,0.10);
     }
 
     .metric:first-child {
@@ -285,7 +291,7 @@
 
     .metric-value {
       font-family: "Oswald", sans-serif;
-      font-size: clamp(2.8rem, 6vw, 4.6rem);
+      font-size: clamp(2.8rem, 6vw, 4.4rem);
       line-height: 1;
       color: var(--text);
       text-transform: uppercase;
@@ -302,7 +308,7 @@
 
     .audience-tag,
     .contact-label {
-      color: var(--accent);
+      color: var(--accent-soft);
       font-size: 0.78rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
@@ -325,8 +331,8 @@
     }
 
     .stars {
-      color: var(--accent);
-      font-size: 1.25rem;
+      color: var(--accent-soft);
+      font-size: 1.2rem;
       letter-spacing: 0.14em;
       margin-bottom: 16px;
     }
@@ -341,20 +347,17 @@
     }
 
     .cta {
-      padding: 96px 0;
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .cta-inner {
-      text-align: left;
+      padding: 92px 0;
+      border-top: 1px solid rgba(190,205,220,0.08);
+      border-bottom: 1px solid rgba(190,205,220,0.08);
+      background: linear-gradient(180deg, rgba(10,14,19,0.42), rgba(5,8,11,0.2));
     }
 
     .cta-copy {
       max-width: 900px;
-      margin-top: 28px;
+      margin-top: 26px;
       color: var(--text-soft);
-      font-size: clamp(1rem, 2vw, 1.3rem);
+      font-size: clamp(1rem, 2vw, 1.24rem);
       line-height: 1.9;
     }
 
@@ -362,7 +365,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 14px;
-      margin-top: 30px;
+      margin-top: 28px;
     }
 
     .btn {
@@ -380,8 +383,8 @@
     }
 
     .btn-primary {
-      background: var(--accent);
-      color: var(--accent-text);
+      background: var(--sand);
+      color: var(--sand-text);
       border: none;
     }
 
@@ -391,14 +394,14 @@
     }
 
     .btn-secondary {
-      border: 1px solid var(--line);
+      border: 1px solid rgba(190,205,220,0.12);
       color: var(--text);
       background: transparent;
     }
 
     .btn-secondary:hover {
       transform: translateY(-1px);
-      border-color: rgba(255,255,255,0.16);
+      border-color: rgba(190,205,220,0.22);
     }
 
     .cta-meta {
@@ -412,7 +415,7 @@
 
     .contact-row {
       padding: 18px 0;
-      border-top: 1px solid var(--line);
+      border-top: 1px solid rgba(190,205,220,0.10);
     }
 
     .contact-row:first-child {
@@ -432,7 +435,7 @@
     }
 
     .contact-value:hover {
-      color: var(--text-soft);
+      color: var(--accent-soft);
     }
 
     footer {
@@ -457,7 +460,7 @@
     }
 
     .footer-brand .dot {
-      color: var(--accent);
+      color: var(--sand);
     }
 
     .footer-copy {
@@ -480,25 +483,11 @@
     }
 
     @media (min-width: 900px) {
-      .services-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-
-      .reviews-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-
-      .audience-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .method-grid {
-        grid-template-columns: 1.1fr 0.9fr;
-      }
-
-      .contact-grid {
-        grid-template-columns: 0.95fr 1.05fr;
-      }
+      .services-grid { grid-template-columns: repeat(3, 1fr); }
+      .reviews-grid { grid-template-columns: repeat(3, 1fr); }
+      .audience-grid { grid-template-columns: repeat(2, 1fr); }
+      .method-grid { grid-template-columns: 1.1fr 0.9fr; }
+      .contact-grid { grid-template-columns: 0.95fr 1.05fr; }
     }
 
     @media (max-width: 768px) {
@@ -515,7 +504,7 @@
       }
 
       .brand {
-        font-size: 2.55rem;
+        font-size: 2.5rem;
       }
 
       .nav-cta {
@@ -534,7 +523,7 @@
 
       .label {
         font-size: 0.72rem;
-        letter-spacing: 0.26em;
+        letter-spacing: 0.24em;
         margin-bottom: 20px;
       }
 
@@ -543,7 +532,7 @@
       }
 
       .hero-title {
-        font-size: clamp(3.2rem, 16vw, 5.6rem);
+        font-size: clamp(3rem, 15vw, 5.2rem);
         line-height: 0.92;
       }
 
@@ -560,7 +549,7 @@
       .zone-card,
       .method-card,
       .steps {
-        border-radius: 16px;
+        border-radius: 14px;
       }
 
       .service-card,
@@ -573,19 +562,19 @@
       }
 
       .step {
-        padding: 22px 22px;
+        padding: 22px;
       }
 
       .card-title {
-        font-size: clamp(2.1rem, 11vw, 3.4rem);
+        font-size: clamp(2rem, 11vw, 3.2rem);
       }
 
       .card-price {
-        font-size: clamp(2.7rem, 12vw, 4rem);
+        font-size: clamp(2.6rem, 12vw, 3.8rem);
       }
 
       .cta {
-        padding: 76px 0;
+        padding: 72px 0;
       }
 
       .cta-actions {
@@ -621,10 +610,9 @@
     <div class="container">
       <div class="label">Prestations</div>
       <h2 class="hero-title">Trois interventions. Une précision.</h2>
-
       <p class="section-copy">
         Chaque prestation suit un protocole rigoureux, avec du matériel professionnel dédié,
-        pour un rendu propre, fiable et compréhensible.
+        pour un rendu propre, fiable et compréhensible pour le client.
       </p>
 
       <div class="services-grid">
@@ -642,8 +630,7 @@
           <div class="service-dot"></div>
           <h3 class="card-title">R1234yf</h3>
           <p class="card-text">
-            Recharge nouveau gaz pour véhicules plus récents,
-            avec matériel adapté et process propre.
+            Recharge nouveau gaz pour véhicules plus récents, avec matériel adapté et process propre.
           </p>
           <div class="card-price">140€</div>
         </article>
@@ -652,8 +639,7 @@
           <div class="service-dot"></div>
           <h3 class="card-title">Recherche de fuite</h3>
           <p class="card-text">
-            Injection d’azote hydrogéné et détection sur circuit,
-            pour poser un diagnostic clair avant réparation.
+            Injection d’azote hydrogéné et détection sur circuit, pour poser un diagnostic clair avant réparation.
           </p>
           <div class="card-price">60€</div>
         </article>
@@ -711,10 +697,8 @@
     <div class="container">
       <div class="label">Pour qui</div>
       <h2 class="hero-title">Deux cibles. Une expertise.</h2>
-
       <p class="section-copy">
-        Particuliers ou professionnels, l’approche reste la même :
-        précise, transparente, sans compromis.
+        Particuliers ou professionnels, l’approche reste la même : précise, transparente, sans compromis.
       </p>
 
       <div class="audience-grid">
@@ -722,8 +706,8 @@
           <div class="audience-tag">Particuliers</div>
           <h3 class="card-title">Le confort.<br>Chez vous.</h3>
           <p class="card-text">
-            Pas d’attente en garage, pas d’organisation compliquée.
-            L’intervention vient à vous, avec un discours clair et un rendu propre.
+            Pas d’attente en garage, pas d’organisation compliquée. L’intervention vient à vous,
+            avec un discours clair et un rendu propre.
           </p>
           <ul class="audience-list">
             <li>Intervention à domicile ou sur lieu de travail</li>
@@ -737,8 +721,7 @@
           <div class="audience-tag">Professionnels</div>
           <h3 class="card-title">L’expertise.<br>En renfort.</h3>
           <p class="card-text">
-            Garages, flottes, ateliers, carrossiers :
-            une intégration souple à votre organisation avec rigueur et régularité.
+            Garages, flottes, ateliers, carrossiers : une intégration souple à votre organisation avec rigueur et régularité.
           </p>
           <ul class="audience-list">
             <li>Intervention sur parc ou en atelier</li>
@@ -779,9 +762,8 @@
   </section>
 
   <section class="cta">
-    <div class="container cta-inner">
+    <div class="container">
       <h2 class="hero-title">Prêt à retrouver le frais ?</h2>
-
       <p class="cta-copy">
         Réponse rapide. Intervention mobile selon votre zone et disponibilité.
       </p>
@@ -828,8 +810,7 @@
         <div class="zone-card reveal">
           <div class="contact-label">Zone d’intervention</div>
           <p class="card-text">
-            Toulouse et alentours. Contacte-moi pour vérifier rapidement ton secteur
-            et confirmer la faisabilité de l’intervention mobile.
+            Toulouse et alentours. Contacte-moi pour vérifier rapidement ton secteur et confirmer la faisabilité de l’intervention mobile.
           </p>
 
           <ul class="zone-tags">
@@ -858,7 +839,6 @@
 
   <script>
     const reveals = document.querySelectorAll(".reveal");
-
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
