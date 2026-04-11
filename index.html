@@ -17,15 +17,18 @@
     }
 
     :root {
-      --bg: #050505;
+      --bg: #030303;
       --panel: #0a0a0a;
+      --panel-2: #0d0d0d;
       --line: rgba(255,255,255,0.08);
-      --text: #f2eee8;
-      --soft: rgba(242,238,232,0.78);
-      --muted: rgba(242,238,232,0.28);
-      --muted-strong: rgba(242,238,232,0.34);
-      --accent: #d6b172;
-      --accent-text: #17130d;
+
+      --text: #efebe4;
+      --text-soft: #cfc8bf;
+      --text-muted: #6f6b66;
+
+      --accent: #c9a46a;
+      --accent-text: #17130f;
+
       --max: 1480px;
     }
 
@@ -48,6 +51,11 @@
       text-decoration: none;
     }
 
+    img, svg, video {
+      max-width: 100%;
+      display: block;
+    }
+
     .container {
       width: min(100%, var(--max));
       margin: 0 auto;
@@ -61,8 +69,10 @@
       left: 0;
       right: 0;
       z-index: 50;
-      background: rgba(5,5,5,0.92);
+      background: rgba(3,3,3,0.94);
       border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
     }
 
     .nav-inner {
@@ -79,7 +89,7 @@
       font-family: "Oswald", sans-serif;
       font-size: 3rem;
       line-height: 1;
-      letter-spacing: -0.02em;
+      letter-spacing: -0.03em;
       color: var(--text);
       white-space: nowrap;
     }
@@ -92,24 +102,30 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 72px;
-      padding: 0 34px;
+      min-height: 68px;
+      padding: 0 32px;
       border-radius: 999px;
       background: var(--accent);
       color: var(--accent-text);
-      font-size: 0.95rem;
+      font-size: 0.92rem;
       font-weight: 600;
-      letter-spacing: 0.16em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       white-space: nowrap;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .nav-cta:hover {
+      transform: translateY(-1px);
+      opacity: 0.96;
     }
 
     .hero-space {
-      height: 118px;
+      height: 114px;
     }
 
     .section {
-      padding: 82px 0;
+      padding: 78px 0;
       border-top: 1px solid var(--line);
     }
 
@@ -117,48 +133,40 @@
       display: inline-flex;
       align-items: center;
       gap: 16px;
-      margin-bottom: 28px;
+      margin-bottom: 26px;
       color: var(--accent);
-      font-size: 0.82rem;
-      letter-spacing: 0.34em;
+      font-size: 0.8rem;
+      letter-spacing: 0.32em;
       text-transform: uppercase;
       white-space: nowrap;
     }
 
     .label::before {
       content: "";
-      width: 54px;
+      width: 48px;
       height: 1px;
       background: var(--accent);
       display: block;
       flex: 0 0 auto;
     }
 
-    .editorial {
-      max-width: 1200px;
-    }
-
-    .stack-title {
+    .hero-title {
       font-family: "Oswald", sans-serif;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: -0.03em;
-      line-height: 0.9;
-      font-size: clamp(4.3rem, 12vw, 10rem);
+      line-height: 0.92;
+      font-size: clamp(3.8rem, 10vw, 8.8rem);
       color: var(--text);
-      display: block;
-    }
-
-    .stack-title.muted {
-      color: var(--muted-strong);
+      max-width: 1200px;
     }
 
     .section-copy {
-      max-width: 1050px;
-      margin-top: 34px;
-      font-size: clamp(1.1rem, 2.1vw, 1.45rem);
+      max-width: 1080px;
+      margin-top: 30px;
+      font-size: clamp(1.02rem, 2vw, 1.35rem);
       line-height: 1.9;
-      color: var(--soft);
+      color: var(--text-soft);
     }
 
     .services-grid,
@@ -166,8 +174,8 @@
     .audience-grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 28px;
-      margin-top: 56px;
+      gap: 22px;
+      margin-top: 50px;
     }
 
     .service-card,
@@ -176,41 +184,41 @@
     .contact-card,
     .zone-card,
     .method-card {
-      background: transparent;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
       border: 1px solid var(--line);
-      border-radius: 36px;
-      padding: 34px;
+      border-radius: 18px;
+      padding: 30px;
     }
 
     .service-dot {
-      width: 18px;
-      height: 18px;
+      width: 15px;
+      height: 15px;
       border-radius: 50%;
       background: var(--accent);
-      margin-bottom: 26px;
+      margin-bottom: 22px;
     }
 
     .card-title {
       font-family: "Oswald", sans-serif;
-      font-size: clamp(2.7rem, 6vw, 4.6rem);
-      line-height: 0.95;
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      line-height: 0.96;
       text-transform: uppercase;
       letter-spacing: -0.03em;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
       color: var(--text);
     }
 
     .card-text {
-      color: var(--soft);
-      font-size: 1.02rem;
-      line-height: 1.9;
+      color: var(--text-soft);
+      font-size: 1rem;
+      line-height: 1.85;
       max-width: 900px;
     }
 
     .card-price {
-      margin-top: 26px;
+      margin-top: 22px;
       font-family: "Oswald", sans-serif;
-      font-size: clamp(3.2rem, 7vw, 5rem);
+      font-size: clamp(3rem, 6vw, 4.8rem);
       line-height: 1;
       text-transform: uppercase;
       color: var(--text);
@@ -220,18 +228,19 @@
     .contact-grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 28px;
-      margin-top: 56px;
+      gap: 22px;
+      margin-top: 50px;
     }
 
     .steps {
       border: 1px solid var(--line);
-      border-radius: 36px;
+      border-radius: 18px;
       overflow: hidden;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
     }
 
     .step {
-      padding: 28px 30px;
+      padding: 26px 28px;
       border-top: 1px solid var(--line);
     }
 
@@ -241,21 +250,21 @@
 
     .step-number {
       font-family: "Oswald", sans-serif;
-      font-size: 1.2rem;
+      font-size: 1.15rem;
       letter-spacing: 0.12em;
       color: var(--accent);
       margin-bottom: 10px;
     }
 
     .step h3 {
-      font-size: 1.2rem;
+      font-size: 1.16rem;
       margin-bottom: 10px;
       color: var(--text);
       font-weight: 500;
     }
 
     .step p {
-      color: var(--soft);
+      color: var(--text-soft);
       line-height: 1.85;
       font-size: 1rem;
     }
@@ -276,7 +285,7 @@
 
     .metric-value {
       font-family: "Oswald", sans-serif;
-      font-size: clamp(3rem, 7vw, 4.8rem);
+      font-size: clamp(2.8rem, 6vw, 4.6rem);
       line-height: 1;
       color: var(--text);
       text-transform: uppercase;
@@ -284,20 +293,20 @@
 
     .metric-label {
       margin-top: 10px;
-      color: var(--soft);
-      font-size: 0.95rem;
+      color: var(--text-soft);
+      font-size: 0.9rem;
       line-height: 1.8;
       text-transform: uppercase;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.1em;
     }
 
     .audience-tag,
     .contact-label {
       color: var(--accent);
-      font-size: 0.82rem;
-      letter-spacing: 0.22em;
+      font-size: 0.78rem;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
 
     .audience-list,
@@ -305,34 +314,34 @@
       list-style: none;
       display: grid;
       gap: 10px;
-      margin-top: 22px;
+      margin-top: 20px;
     }
 
     .audience-list li,
     .zone-tags li {
-      color: var(--soft);
+      color: var(--text-soft);
       font-size: 1rem;
       line-height: 1.8;
     }
 
     .stars {
       color: var(--accent);
-      font-size: 1.4rem;
-      letter-spacing: 0.16em;
-      margin-bottom: 18px;
+      font-size: 1.25rem;
+      letter-spacing: 0.14em;
+      margin-bottom: 16px;
     }
 
     .review-author {
-      margin-top: 24px;
-      color: var(--muted-strong);
-      font-size: 0.84rem;
-      letter-spacing: 0.22em;
+      margin-top: 22px;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
       line-height: 1.7;
     }
 
     .cta {
-      padding: 110px 0;
+      padding: 96px 0;
       border-top: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
     }
@@ -343,9 +352,9 @@
 
     .cta-copy {
       max-width: 900px;
-      margin-top: 30px;
-      color: var(--soft);
-      font-size: clamp(1.08rem, 2vw, 1.4rem);
+      margin-top: 28px;
+      color: var(--text-soft);
+      font-size: clamp(1rem, 2vw, 1.3rem);
       line-height: 1.9;
     }
 
@@ -353,25 +362,32 @@
       display: flex;
       flex-wrap: wrap;
       gap: 14px;
-      margin-top: 34px;
+      margin-top: 30px;
     }
 
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 58px;
-      padding: 0 24px;
+      min-height: 56px;
+      padding: 0 22px;
       border-radius: 999px;
-      font-size: 0.84rem;
+      font-size: 0.82rem;
       letter-spacing: 0.14em;
       text-transform: uppercase;
       font-weight: 600;
+      transition: transform 0.2s ease, opacity 0.2s ease, border-color 0.2s ease;
     }
 
     .btn-primary {
       background: var(--accent);
       color: var(--accent-text);
+      border: none;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      opacity: 0.96;
     }
 
     .btn-secondary {
@@ -380,17 +396,22 @@
       background: transparent;
     }
 
+    .btn-secondary:hover {
+      transform: translateY(-1px);
+      border-color: rgba(255,255,255,0.16);
+    }
+
     .cta-meta {
       margin-top: 18px;
-      color: var(--muted-strong);
-      font-size: 0.78rem;
-      letter-spacing: 0.18em;
+      color: var(--text-muted);
+      font-size: 0.76rem;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
       line-height: 1.8;
     }
 
     .contact-row {
-      padding: 20px 0;
+      padding: 18px 0;
       border-top: 1px solid var(--line);
     }
 
@@ -405,9 +426,13 @@
 
     .contact-value {
       color: var(--text);
-      font-size: 1.05rem;
+      font-size: 1.02rem;
       line-height: 1.8;
       word-break: break-word;
+    }
+
+    .contact-value:hover {
+      color: var(--text-soft);
     }
 
     footer {
@@ -436,8 +461,8 @@
     }
 
     .footer-copy {
-      color: var(--muted-strong);
-      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-size: 0.78rem;
       letter-spacing: 0.16em;
       text-transform: uppercase;
       text-align: right;
@@ -445,7 +470,7 @@
 
     .reveal {
       opacity: 0;
-      transform: translateY(18px);
+      transform: translateY(16px);
       transition: opacity 0.65s ease, transform 0.65s ease;
     }
 
@@ -494,36 +519,36 @@
       }
 
       .nav-cta {
-        min-height: 58px;
+        min-height: 56px;
         padding: 0 24px;
-        font-size: 0.82rem;
+        font-size: 0.8rem;
       }
 
       .hero-space {
-        height: 104px;
+        height: 100px;
       }
 
       .section {
-        padding: 64px 0;
+        padding: 60px 0;
       }
 
       .label {
         font-size: 0.72rem;
-        letter-spacing: 0.28em;
-        margin-bottom: 22px;
+        letter-spacing: 0.26em;
+        margin-bottom: 20px;
       }
 
       .label::before {
-        width: 38px;
+        width: 34px;
       }
 
-      .stack-title {
-        font-size: clamp(3.8rem, 18vw, 6rem);
-        line-height: 0.9;
+      .hero-title {
+        font-size: clamp(3.2rem, 16vw, 5.6rem);
+        line-height: 0.92;
       }
 
       .section-copy {
-        margin-top: 26px;
+        margin-top: 24px;
         font-size: 1rem;
         line-height: 1.8;
       }
@@ -535,7 +560,7 @@
       .zone-card,
       .method-card,
       .steps {
-        border-radius: 28px;
+        border-radius: 16px;
       }
 
       .service-card,
@@ -544,23 +569,23 @@
       .contact-card,
       .zone-card,
       .method-card {
-        padding: 26px;
+        padding: 24px;
       }
 
       .step {
-        padding: 24px 24px;
+        padding: 22px 22px;
       }
 
       .card-title {
-        font-size: clamp(2.4rem, 12vw, 3.9rem);
+        font-size: clamp(2.1rem, 11vw, 3.4rem);
       }
 
       .card-price {
-        font-size: clamp(2.8rem, 13vw, 4.2rem);
+        font-size: clamp(2.7rem, 12vw, 4rem);
       }
 
       .cta {
-        padding: 84px 0;
+        padding: 76px 0;
       }
 
       .cta-actions {
@@ -593,15 +618,13 @@
   <div class="hero-space"></div>
 
   <section id="prestations" class="section">
-    <div class="container editorial">
+    <div class="container">
       <div class="label">Prestations</div>
-      <div class="stack-title">Trois interventions.</div>
-      <div class="stack-title muted">Trois interventions.</div>
-      <div class="stack-title muted">Une précision.</div>
+      <h2 class="hero-title">Trois interventions. Une précision.</h2>
 
       <p class="section-copy">
         Chaque prestation suit un protocole rigoureux, avec du matériel professionnel dédié,
-        pour un rendu propre, fiable et compréhensible pour le client.
+        pour un rendu propre, fiable et compréhensible.
       </p>
 
       <div class="services-grid">
@@ -639,11 +662,9 @@
   </section>
 
   <section id="methode" class="section">
-    <div class="container editorial">
+    <div class="container">
       <div class="label">Méthode</div>
-      <div class="stack-title">Simple.</div>
-      <div class="stack-title muted">Simple.</div>
-      <div class="stack-title muted">Chez vous.</div>
+      <h2 class="hero-title">Simple. Efficace. Chez vous.</h2>
 
       <div class="method-grid">
         <div class="steps reveal">
@@ -687,11 +708,9 @@
   </section>
 
   <section id="pour-qui" class="section">
-    <div class="container editorial">
+    <div class="container">
       <div class="label">Pour qui</div>
-      <div class="stack-title">Deux cibles.</div>
-      <div class="stack-title muted">Deux cibles.</div>
-      <div class="stack-title muted">Une expertise.</div>
+      <h2 class="hero-title">Deux cibles. Une expertise.</h2>
 
       <p class="section-copy">
         Particuliers ou professionnels, l’approche reste la même :
@@ -733,11 +752,9 @@
   </section>
 
   <section id="avis" class="section">
-    <div class="container editorial">
+    <div class="container">
       <div class="label">Avis clients</div>
-      <div class="stack-title">Ils ont testé.</div>
-      <div class="stack-title muted">Ils ont testé.</div>
-      <div class="stack-title muted">Ils ont approuvé.</div>
+      <h2 class="hero-title">Ils ont testé. Ils ont approuvé.</h2>
 
       <div class="reviews-grid">
         <article class="review-card reveal">
@@ -762,10 +779,8 @@
   </section>
 
   <section class="cta">
-    <div class="container editorial cta-inner">
-      <div class="stack-title">Prêt à</div>
-      <div class="stack-title muted">retrouver retrouver retrouver</div>
-      <div class="stack-title">le frais ?</div>
+    <div class="container cta-inner">
+      <h2 class="hero-title">Prêt à retrouver le frais ?</h2>
 
       <p class="cta-copy">
         Réponse rapide. Intervention mobile selon votre zone et disponibilité.
@@ -783,11 +798,9 @@
   </section>
 
   <section id="contact" class="section">
-    <div class="container editorial">
+    <div class="container">
       <div class="label">Contact</div>
-      <div class="stack-title">Parlons-en.</div>
-      <div class="stack-title muted">Parlons-en.</div>
-      <div class="stack-title muted">Parlons-en.</div>
+      <h2 class="hero-title">Parlons-en.</h2>
 
       <div class="contact-grid">
         <div class="contact-card reveal">
