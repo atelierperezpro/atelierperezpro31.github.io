@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Perez Atelier — Climatisation automobile mobile</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
   <style>
     * {
@@ -18,19 +18,18 @@
 
     :root {
       --bg: #04070b;
-      --bg-2: #081019;
-      --panel: rgba(8, 13, 20, 0.66);
-      --panel-2: rgba(9, 15, 22, 0.82);
-      --line: rgba(255,255,255,0.07);
+      --bg-deep: #020407;
+      --panel: rgba(8, 13, 20, 0.68);
+      --line: rgba(255, 255, 255, 0.07);
 
       --text: #eef2f6;
-      --text-soft: #b7c1cb;
+      --text-soft: #b8c1cb;
       --text-muted: #6b7788;
-      --text-ghost: #66758b;
+      --text-ghost: #647387;
 
       --blue: #4696f0;
-      --blue-2: #2f7ddd;
-      --blue-soft: #74a8e3;
+      --blue-soft: #7eaee4;
+      --blue-glow: rgba(70, 150, 240, 0.14);
 
       --max: 1480px;
       --radius: 16px;
@@ -38,7 +37,7 @@
 
     html {
       scroll-behavior: smooth;
-      background: var(--bg);
+      background: var(--bg-deep);
       -webkit-text-size-adjust: 100%;
     }
 
@@ -47,9 +46,9 @@
       color: var(--text);
       overflow-x: hidden;
       background:
-        radial-gradient(circle at 32% 24%, rgba(70,150,240,0.16), transparent 28%),
-        radial-gradient(circle at 78% 72%, rgba(36,90,170,0.10), transparent 28%),
-        linear-gradient(180deg, #04070b 0%, #05080d 100%);
+        radial-gradient(circle at 34% 22%, rgba(70,150,240,0.13), transparent 26%),
+        radial-gradient(circle at 72% 62%, rgba(24,82,158,0.08), transparent 24%),
+        linear-gradient(180deg, #03060a 0%, #05080d 100%);
       line-height: 1.4;
     }
 
@@ -74,10 +73,10 @@
       position: fixed;
       inset: 0 0 auto 0;
       z-index: 100;
-      background: rgba(4,7,11,0.88);
+      background: rgba(4, 7, 11, 0.88);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(255,255,255,0.05);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
 
     .nav-inner {
@@ -92,17 +91,13 @@
 
     .logo {
       font-family: "Oswald", sans-serif;
-      font-size: clamp(1.95rem, 4vw, 2.45rem);
+      font-size: clamp(1.95rem, 4vw, 2.4rem);
       font-weight: 500;
       line-height: 1;
       letter-spacing: 0.05em;
       color: var(--text);
-      white-space: nowrap;
       text-transform: uppercase;
-    }
-
-    .logo span {
-      color: var(--blue);
+      white-space: nowrap;
     }
 
     .nav-cta,
@@ -126,7 +121,7 @@
     .btn-primary:hover {
       transform: translateY(-1px);
       background: #58a4fa;
-      box-shadow: 0 10px 30px rgba(70,150,240,0.18);
+      box-shadow: 0 10px 28px rgba(70, 150, 240, 0.18);
     }
 
     .btn-secondary {
@@ -136,8 +131,8 @@
       min-height: 52px;
       padding: 0 22px;
       border-radius: 8px;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: rgba(255,255,255,0.01);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.01);
       color: var(--text);
       font-size: 0.8rem;
       font-weight: 500;
@@ -148,14 +143,14 @@
 
     .btn-secondary:hover {
       transform: translateY(-1px);
-      border-color: rgba(70,150,240,0.22);
-      background: rgba(70,150,240,0.04);
+      border-color: rgba(70, 150, 240, 0.22);
+      background: rgba(70, 150, 240, 0.04);
     }
 
     .hero {
-      min-height: 88svh;
-      padding-top: 108px;
-      padding-bottom: 34px;
+      min-height: 82svh;
+      padding-top: 104px;
+      padding-bottom: 28px;
       display: flex;
       align-items: center;
       position: relative;
@@ -166,19 +161,15 @@
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(circle at 38% 30%, rgba(70,150,240,0.10), transparent 30%),
-        radial-gradient(circle at 66% 52%, rgba(70,150,240,0.06), transparent 36%);
+        radial-gradient(circle at 40% 28%, rgba(70,150,240,0.09), transparent 28%),
+        radial-gradient(circle at 58% 52%, rgba(70,150,240,0.05), transparent 34%);
       pointer-events: none;
     }
 
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.08fr 0.92fr;
-      gap: 28px;
-      align-items: center;
-      width: 100%;
+    .hero-inner {
       position: relative;
       z-index: 1;
+      width: 100%;
     }
 
     .tag {
@@ -193,7 +184,7 @@
 
     .hero h1 {
       font-family: "Oswald", sans-serif;
-      font-size: clamp(3.25rem, 8.8vw, 7.15rem);
+      font-size: clamp(3.2rem, 8.8vw, 7.05rem);
       line-height: 0.92;
       text-transform: uppercase;
       letter-spacing: -0.045em;
@@ -202,7 +193,7 @@
 
     .hero h1 .blue {
       color: var(--blue);
-      text-shadow: 0 0 20px rgba(70,150,240,0.12);
+      text-shadow: 0 0 18px rgba(70, 150, 240, 0.12);
     }
 
     .hero h1 .ghost {
@@ -213,7 +204,7 @@
       margin-top: 30px;
       max-width: 760px;
       color: var(--text-soft);
-      font-size: clamp(1rem, 2vw, 1.22rem);
+      font-size: clamp(1rem, 2vw, 1.2rem);
       line-height: 1.9;
     }
 
@@ -224,67 +215,10 @@
       flex-wrap: wrap;
     }
 
-    .hero-side {
-      display: flex;
-      justify-content: flex-end;
-    }
-
-    .hero-panel {
-      width: min(100%, 390px);
-      padding: 26px;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: linear-gradient(180deg, rgba(9,14,21,0.84), rgba(7,10,15,0.68));
-      border-radius: var(--radius);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.03);
-    }
-
-    .hero-panel-label {
-      color: var(--blue-soft);
-      font-size: 0.76rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      margin-bottom: 12px;
-    }
-
-    .hero-panel p {
-      margin-top: 0;
-      max-width: none;
-      font-size: 0.98rem;
-      line-height: 1.8;
-      color: var(--text-soft);
-    }
-
-    .hero-points {
-      list-style: none;
-      display: grid;
-      gap: 10px;
-      margin-top: 18px;
-    }
-
-    .hero-points li {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 0.88rem;
-      color: var(--text);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .hero-points li::before {
-      content: "";
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--blue);
-      box-shadow: 0 0 14px rgba(70,150,240,0.2);
-      flex: 0 0 auto;
-    }
-
     .info-bar {
-      border-top: 1px solid rgba(255,255,255,0.05);
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-      background: linear-gradient(180deg, rgba(6,10,15,0.78), rgba(5,8,12,0.82));
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      background: linear-gradient(180deg, rgba(6,10,15,0.74), rgba(5,8,12,0.8));
     }
 
     .info-inner {
@@ -292,7 +226,7 @@
       margin: 0 auto;
       padding: 14px 24px;
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 14px;
     }
 
@@ -314,16 +248,20 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      background: rgba(70,150,240,0.12);
+      background: rgba(70, 150, 240, 0.12);
       color: var(--blue-soft);
-      border: 1px solid rgba(70,150,240,0.12);
+      border: 1px solid rgba(70, 150, 240, 0.12);
       font-size: 0.95rem;
       flex: 0 0 auto;
     }
 
     section {
-      padding: 82px 0;
-      border-top: 1px solid rgba(255,255,255,0.04);
+      padding: 92px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    #prestations {
+      padding-top: 120px;
     }
 
     .section-label {
@@ -347,7 +285,7 @@
 
     .section-title {
       font-family: "Oswald", sans-serif;
-      font-size: clamp(2.85rem, 7.6vw, 5.8rem);
+      font-size: clamp(2.85rem, 7.5vw, 5.7rem);
       line-height: 0.94;
       letter-spacing: -0.045em;
       text-transform: uppercase;
@@ -358,7 +296,7 @@
       margin-top: 22px;
       max-width: 980px;
       color: var(--text-soft);
-      font-size: clamp(1rem, 2vw, 1.16rem);
+      font-size: clamp(1rem, 2vw, 1.14rem);
       line-height: 1.9;
     }
 
@@ -378,10 +316,10 @@
 
     .card {
       background: var(--panel);
-      border: 1px solid rgba(255,255,255,0.08);
+      border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: var(--radius);
       padding: 26px;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.03);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
     }
 
     .service-dot {
@@ -389,7 +327,7 @@
       height: 13px;
       border-radius: 50%;
       background: var(--blue);
-      box-shadow: 0 0 16px rgba(70,150,240,0.18);
+      box-shadow: 0 0 16px rgba(70, 150, 240, 0.18);
       margin-bottom: 18px;
     }
 
@@ -427,9 +365,9 @@
     .steps,
     .stats {
       background: var(--panel);
-      border: 1px solid rgba(255,255,255,0.08);
+      border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: var(--radius);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.03);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
     }
 
     .steps {
@@ -442,7 +380,7 @@
 
     .step {
       padding: 24px 26px;
-      border-top: 1px solid rgba(255,255,255,0.07);
+      border-top: 1px solid rgba(255, 255, 255, 0.07);
     }
 
     .step:first-child {
@@ -470,7 +408,7 @@
 
     .stat {
       padding: 18px 0;
-      border-top: 1px solid rgba(255,255,255,0.07);
+      border-top: 1px solid rgba(255, 255, 255, 0.07);
     }
 
     .stat:first-child {
@@ -550,8 +488,8 @@
 
     .cta-section {
       background: linear-gradient(180deg, rgba(10,16,24,0.62), rgba(7,10,15,0.74));
-      border-top: 1px solid rgba(255,255,255,0.05);
-      border-bottom: 1px solid rgba(255,255,255,0.05);
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
 
     .cta-copy {
@@ -580,7 +518,7 @@
 
     .contact-row {
       padding: 18px 0;
-      border-top: 1px solid rgba(255,255,255,0.07);
+      border-top: 1px solid rgba(255, 255, 255, 0.07);
     }
 
     .contact-row:first-child {
@@ -614,8 +552,8 @@
     .zone-list li {
       padding: 9px 12px;
       border-radius: 10px;
-      border: 1px solid rgba(70,150,240,0.10);
-      background: rgba(70,150,240,0.04);
+      border: 1px solid rgba(70, 150, 240, 0.10);
+      background: rgba(70, 150, 240, 0.04);
       color: var(--text-soft);
       font-size: 0.8rem;
       letter-spacing: 0.08em;
@@ -643,10 +581,6 @@
       text-transform: uppercase;
     }
 
-    .footer-logo span {
-      color: var(--blue);
-    }
-
     .footer-copy {
       color: var(--text-muted);
       font-size: 0.76rem;
@@ -667,16 +601,11 @@
     }
 
     @media (max-width: 1100px) {
-      .hero-grid,
       .method-layout,
       .grid-3,
       .grid-2,
       .info-inner {
         grid-template-columns: 1fr;
-      }
-
-      .hero-side {
-        justify-content: flex-start;
       }
     }
 
@@ -694,7 +623,7 @@
       }
 
       .logo {
-        font-size: 2.1rem;
+        font-size: 2.05rem;
       }
 
       .nav-cta {
@@ -706,7 +635,7 @@
       .hero {
         min-height: auto;
         padding-top: 96px;
-        padding-bottom: 26px;
+        padding-bottom: 22px;
       }
 
       .tag {
@@ -736,14 +665,12 @@
         width: 100%;
       }
 
-      .hero-panel,
       .card,
       .steps,
       .stats {
         border-radius: 14px;
       }
 
-      .hero-panel,
       .card,
       .stats {
         padding: 24px;
@@ -769,6 +696,10 @@
 
       section {
         padding: 66px 0;
+      }
+
+      #prestations {
+        padding-top: 94px;
       }
 
       .section-title {
@@ -798,49 +729,31 @@
 
   <nav>
     <div class="nav-inner">
-      <a href="#" class="logo">PEREZ<span>.</span>ATELIER</a>
+      <a href="#" class="logo">PEREZ ATELIER</a>
       <a href="https://calendly.com/perezatelier31" target="_blank" rel="noopener" class="nav-cta">Réserver</a>
     </div>
   </nav>
 
   <header class="hero">
     <div class="container">
-      <div class="hero-grid">
-        <div>
-          <div class="tag">Climatisation automobile mobile — Toulouse & alentours</div>
+      <div class="hero-inner">
+        <div class="tag">Climatisation automobile mobile — Toulouse & alentours</div>
 
-          <h1>
-            LA FRAÎCHEUR<br>
-            <span class="blue">REVIENT.</span><br>
-            <span class="ghost">SANS DÉPLACEMENT.</span>
-          </h1>
+        <h1>
+          LA FRAÎCHEUR<br>
+          <span class="blue">REVIENT.</span><br>
+          <span class="ghost">SANS DÉPLACEMENT.</span>
+        </h1>
 
-          <p>
-            Recharge et diagnostic de climatisation automobile à domicile ou en atelier.
-            Précision, méthode, résultat.
-          </p>
+        <p>
+          Recharge et diagnostic de climatisation automobile à domicile ou en atelier.
+          Précision, méthode, résultat.
+        </p>
 
-          <div class="hero-buttons">
-            <a href="https://calendly.com/perezatelier31" target="_blank" rel="noopener" class="btn-primary">Prendre rendez-vous</a>
-            <a href="tel:+33763701411" class="btn-secondary">07 63 70 14 11</a>
-            <a href="https://wa.me/33763701411" target="_blank" rel="noopener" class="btn-secondary">WhatsApp</a>
-          </div>
-        </div>
-
-        <div class="hero-side">
-          <div class="hero-panel reveal">
-            <div class="hero-panel-label">Service mobile</div>
-            <p>
-              Intervention sur votre lieu de travail, à domicile, ou selon votre organisation.
-              Une prestation claire, rapide et pensée pour éviter les contraintes inutiles.
-            </p>
-
-            <ul class="hero-points">
-              <li>Intervention mobile</li>
-              <li>Diagnostic précis</li>
-              <li>Particuliers & professionnels</li>
-            </ul>
-          </div>
+        <div class="hero-buttons">
+          <a href="https://calendly.com/perezatelier31" target="_blank" rel="noopener" class="btn-primary">Prendre rendez-vous</a>
+          <a href="tel:+33763701411" class="btn-secondary">07 63 70 14 11</a>
+          <a href="https://wa.me/33763701411" target="_blank" rel="noopener" class="btn-secondary">WhatsApp</a>
         </div>
       </div>
     </div>
@@ -850,8 +763,6 @@
     <div class="info-inner">
       <div class="info"><span class="info-icon">❄️</span>Intervention mobile</div>
       <div class="info"><span class="info-icon">🔬</span>Diagnostic précis</div>
-      <div class="info"><span class="info-icon">🧰</span>Matériel professionnel</div>
-      <div class="info"><span class="info-icon">👤</span>Particuliers & pros</div>
     </div>
   </div>
 
@@ -1095,7 +1006,7 @@
 
   <footer>
     <div class="footer-inner">
-      <div class="footer-logo">PEREZ<span>.</span>ATELIER</div>
+      <div class="footer-logo">PEREZ ATELIER</div>
       <div class="footer-copy">© 2025 Perez Atelier — Toulouse</div>
     </div>
   </footer>
