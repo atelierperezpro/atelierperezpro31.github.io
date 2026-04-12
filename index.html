@@ -193,7 +193,8 @@
       max-width: 860px;
     }
 
-    .hero h1 {
+    .hero h1,
+    .split-title {
       font-family: "Oswald", sans-serif;
       font-size: clamp(3.15rem, 8.8vw, 7rem);
       line-height: 0.92;
@@ -202,12 +203,12 @@
       max-width: 980px;
     }
 
-    .hero h1 .blue {
+    .blue {
       color: var(--blue);
       text-shadow: 0 0 18px rgba(70, 150, 240, 0.12);
     }
 
-    .hero h1 .ghost {
+    .ghost {
       color: var(--text-ghost);
     }
 
@@ -711,7 +712,8 @@
         margin-bottom: 18px;
       }
 
-      .hero h1 {
+      .hero h1,
+      .split-title {
         font-size: clamp(3rem, 15.5vw, 5.25rem);
       }
 
@@ -986,34 +988,44 @@
   <section id="avis">
     <div class="container">
       <div class="section-label">Avis clients</div>
-      <h2 class="section-title">Le frais revient. L’impression reste.</h2>
+      <h2 class="split-title">
+        LE FRAIS<br>
+        <span class="blue">REVIENT.</span><br>
+        <span class="ghost">L’IMPRESSION RESTE.</span>
+      </h2>
       <p class="section-text">
-        Remplace ces textes par tes vrais avis Google exacts, mot pour mot ou résumés courts.
+        Quelques retours laissés par des clients sur Google.
       </p>
 
       <div class="grid-3">
         <article class="card reveal">
           <div class="stars">★★★★★</div>
-          <p class="card-text">
-            “Colle ici un vrai avis Google client.”
-          </p>
-          <div class="review-author">Client — Toulouse</div>
+          <p class="card-text">“Ras parfait !”</p>
+          <div class="review-author">Laure Kudera — Avis Google</div>
         </article>
 
         <article class="card reveal">
           <div class="stars">★★★★★</div>
-          <p class="card-text">
-            “Colle ici un deuxième vrai avis Google client.”
-          </p>
-          <div class="review-author">Client — Colomiers</div>
+          <p class="card-text">“Rapport qualité prix au top, et l’échange humain / professionnel très amical. Je recommande à 200%.”</p>
+          <div class="review-author">Gerald Sart — Avis Google</div>
         </article>
 
         <article class="card reveal">
           <div class="stars">★★★★★</div>
-          <p class="card-text">
-            “Colle ici un troisième vrai avis Google client.”
-          </p>
-          <div class="review-author">Client — Blagnac</div>
+          <p class="card-text">“Merci pour votre professionnalisme.”</p>
+          <div class="review-author">Marion Delcourt — Avis Google</div>
+        </article>
+
+        <article class="card reveal">
+          <div class="stars">★★★★★</div>
+          <p class="card-text">“Intervention rapide et efficace sur un tracteur de 1995 pour une collectivité. Je recommande ce prestataire.”</p>
+          <div class="review-author">Vincent Murat — Avis Google</div>
+        </article>
+
+        <article class="card reveal">
+          <div class="stars">★★★★★</div>
+          <p class="card-text">“Très pro je recommande !”</p>
+          <div class="review-author">Amandine Saban — Avis Google</div>
         </article>
       </div>
 
@@ -1026,7 +1038,11 @@
   <section class="cta-section">
     <div class="container">
       <div class="section-label">Réserver</div>
-      <h2 class="section-title">Le frais revient. À vous de choisir quand.</h2>
+      <h2 class="split-title">
+        LE FRAIS<br>
+        <span class="blue">REVIENT.</span><br>
+        <span class="ghost">À VOUS DE CHOISIR QUAND.</span>
+      </h2>
       <p class="cta-copy">
         Réponse rapide. Intervention mobile à Toulouse et alentours.
       </p>
